@@ -1,0 +1,34 @@
+﻿# Declan Chidlow's personal i3status-rust configuration
+
+theme = "nord-dark"
+icons = "awesome6"
+
+[[block]]
+block = "music"
+hide_when_empty = true
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "hueshift"
+hue_shifter = "wlgammarelayrs"
+click_temp = 4000
+
+[[block]]
+block = "backlight"
+minimum = 0
+
+[[block]]
+block = "pomodoro"
+message = "Take a short break!"
+break_message = "Time to get back to work!"
+
+[[block]]
+block = "battery"
+hide_missing = true
+
+[[block]]
+block = "time"
+interval = 5
+format = "%a %d/%m %R"
