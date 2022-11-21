@@ -1,6 +1,6 @@
 ﻿# Declan Chidlow's personal i3status-rust configuration
 
-theme = "nord-dark"
+theme = "gruvbox-dark"
 icons = "awesome6"
 
 [[block]]
@@ -9,6 +9,7 @@ hide_when_empty = true
 
 [[block]]
 block = "sound"
+headphones_indicator = true
 
 [[block]]
 block = "hueshift"
@@ -20,9 +21,9 @@ block = "backlight"
 minimum = 0
 
 [[block]]
-block = "pomodoro"
-message = "Take a short break!"
-break_message = "Time to get back to work!"
+block = "net"
+on_click = "alacritty -e nmtui"
+format = "{signal_strength}"
 
 [[block]]
 block = "battery"
