@@ -1,21 +1,21 @@
 ﻿font:
   normal:
-    family: Ubuntu Mono
+    family: Fira Code 
     style: Regular
 
   bold:
-    family: Ubuntu Mono
-    style: Bold
+    family: Fira Code
+    style: Bold Lighter 
 
   italic:
-    family: Ubuntu Mono
+    family: Fira Code
     style: Italic
 
   bold_italic:
-    family: Ubuntu Mono
+    family: Fira Code
     style: Bold Italic
 
-  size: 11
+  size: 10
 
 # https://github.com/srcery-colors/srcery-terminal/
 

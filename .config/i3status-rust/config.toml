@@ -1,0 +1,46 @@
+﻿# Declan Chidlow's personal i3status-rust configuration
+
+[theme.overrides]
+idle_bg = "#1C1B19"
+idle_fg = "#918175"
+info_bg = "#1C1B19"
+info_fg = "#2C78BF"
+good_bg = "#1C1B19"
+good_fg = "#519F50"
+warning_bg = "#1C1B19"
+warning_fg = "#FBB829"
+critical_bg = "#1C1B19"
+critical_fg = "#EF2F27"
+separator_bg = "#1C1B19"
+separator_fg = "#4E4E4E"
+
+icons = "none"
+
+[[block]]
+block = "music"
+hide_when_empty = true
+max_width = 60
+smart_trim = true
+
+[[block]]
+block = "sound"
+show_volume_when_muted = true
+on_click = "pavucontrol"
+
+[[block]]
+block = "hueshift"
+click_temp = 4500
+
+[[block]]
+block = "backlight"
+minimum = 0
+cycle = [100, 50, 0, 50]
+
+[[block]]
+block = "battery"
+hide_missing = true
+missing_format = ""
+
+[[block]]
+block = "time"
+format = "%d/%m %R"
