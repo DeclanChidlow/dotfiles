@@ -5,7 +5,7 @@
   [![Forks](https://img.shields.io/github/forks/DeclanChidlow/PersonalConfigs?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/Template/network/members)
   [![Pull Requests](https://img.shields.io/github/issues-pr/DeclanChidlow/PersonalConfigs?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/Template/pulls)
   [![Issues](https://img.shields.io/github/issues/DeclanChidlow/PersonalConfigs?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/Template/issues)
-  [![Contributors](https://img.shields.io/github/contributors/PersonalConfigs/Template?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/PersonalConfigs/graphs/contributors)
+  [![Contributors](https://img.shields.io/github/contributors/DeclanChidlow/PersonalConfigs/Template?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/PersonalConfigs/graphs/contributors)
   [![Licence](https://img.shields.io/github/license/DeclanChidlow/PersonalConfigs?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/PersonalConfigs/blob/main/LICENCE)
 </h1>
 
