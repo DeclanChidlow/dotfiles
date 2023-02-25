@@ -1,4 +1,5 @@
-﻿# Declan Chidlow's personal i3status-rust configuration
+# Declan Chidlow's personal i3status-rust configuration
+# I've moved to yambar
 
 [theme.overrides]
 idle_bg = "#1C1B19"
@@ -18,18 +19,12 @@ icons = "none"
 
 [[block]]
 block = "music"
-hide_when_empty = true
-max_width = 60
-smart_trim = true
+format = "$combo.str(max_w:60)"
 
 [[block]]
 block = "sound"
 show_volume_when_muted = true
-on_click = "pavucontrol"
-
-[[block]]
-block = "hueshift"
-click_temp = 4500
+format = "$output_description{$volume}"
 
 [[block]]
 block = "backlight"
@@ -37,10 +32,16 @@ minimum = 0
 cycle = [100, 50, 0, 50]
 
 [[block]]
+block = "hueshift"
+click_temp = 4500
+
+[[block]]
 block = "battery"
-hide_missing = true
+full_format = "FULL"
 missing_format = ""
 
 [[block]]
 block = "time"
-format = "%d/%m %R"
+interval = 30
+[block.format]
+full = "$timestamp.datetime(f:'%R %d/%m')"
