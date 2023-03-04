@@ -3,35 +3,38 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 
-# Your preferred programs
+# Your variables
 set $term alacritty
 set $fileman pcmanfm-qt
-set $menu bemenu-run -p Search -i -H 19 --fb "$black" --ff "$blue" --nb "$black" --nf "$white" --tb "$black" --hb "$black" --tf "$magenta" --hf "$magenta" --nf "$white" --af "$white" --ab "$black"
+set $menu bemenu-run -p Search: -i -H 20 --fn "pango:Lexend Deca 9" --fb "$hard_black" --ff "$blue" --nb "$hard_black" --nf "$bright_white" --tb "$hard_black" --hb "$hard_black" --tf "$magenta" --hf "$magenta" --nf "$bright_white" --af "$bright_white" --ab "$hard_black"
+set $lock 'swaylock -F -f'
 
 ### Input configuration
 #
-    input type:touchpad {
+input type:touchpad {
         tap enabled
 	middle_emulation enabled
 	left_handed enabled
-    }
+}
     
-# Colemak DH
-	input type:keyboard {
+input type:keyboard {
 	xkb_layout us
 	xkb_variant colemak_dh
-    }
+}
 
 ### Key bindings
 #
 # Basics:
 #
-    # Start a predetermined programs
+    # Start predetermined programs
     bindsym $mod+Return exec $term
     bindsym $mod+Shift+Return exec $fileman
 
     # Kill focused window
     bindsym $mod+Shift+q kill
+
+    # Kill Notifications
+    bindsym $mod+delete exec dunstctl close
 
     # Start your launcher
     bindsym $mod+q exec $menu
@@ -48,7 +51,7 @@ set $menu bemenu-run -p Search -i -H 19 --fb "$black" --ff "$blue" --nb "$black"
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'Are you sure you want to exit sway?' -B 'Yes!' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'Are you sure you want to exit sway?' -B 'Yes' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -104,21 +107,26 @@ set $menu bemenu-run -p Search -i -H 19 --fb "$black" --ff "$blue" --nb "$black"
 #
 # Resizing containers:
 #
+bindsym $mod+r mode "resize"
+
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
     bindsym Left resize shrink width 10px
+    bindsym Shift+Left resize shrink width 20px
     bindsym Down resize grow height 10px
+    bindsym Shift+Down resize grow height 20px
     bindsym Up resize shrink height 10px
+    bindsym Shift+Up resize shrink height 20px
     bindsym Right resize grow width 10px
+    bindsym Shift+Right resize grow width 20px
 
     # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
 
 #
 # Keyboard Control Buttons
@@ -126,6 +134,7 @@ bindsym $mod+r mode "resize"
 
 # F1
 bindsym --locked XF86AudioMute exec amixer set Master toggle
+bindsym --locked Shift+XF86AudioMute exec pavucontrol
 # F2
 bindsym --locked XF86AudioLowerVolume exec amixer set Master 1%-
 bindsym --locked Shift+XF86AudioLowerVolume exec amixer set Master 10%-
@@ -145,18 +154,16 @@ bindsym --locked Shift+XF86MonBrightnessDown exec busctl --user call -- rs.wl-ga
 bindsym --locked XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym --locked Shift+XF86MonBrightnessUp exec busctl --user call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n 100
 # F11
-bindsym --locked Print exec sway-screenshot -o /home/vale/Pictures/screenshots -m output 
-bindsym --locked Shift+Print exec sway-screenshot -o /home/vale/Pictures/screenshots -m region
+bindsym Print exec sway-screenshot -o /home/vale/Pictures/screenshots -m output 
+bindsym Shift+Print exec sway-screenshot -o /home/vale/Pictures/screenshots -m region
 # F12
-bindsym --locked XF86AudioMedia exec $term -e btop
+bindsym XF86AudioMedia exec $term -e btop
 
-# Borders
-hide_edge_borders smart_no_gaps
-
-include /etc/sway/config.d/*
-
-# colors
+# Aesthetics
 font pango:Lexend Deca Regular 9
+
+hide_edge_borders smart_no_gaps
+title_align center
 
 set $black #1C1B19
 set $bright_black #918175
@@ -190,47 +197,34 @@ set $bright_gray #262626
 
 set $hard_black #121212
 
+output "*" bg /home/vale/Pictures/Wallpaper/mainwallpaper.png fill
+
 # Colors                border        background  text          indicator child_border
-client.focused          $black        $black      $yellow       $yellow   $black
-client.focused_inactive $black        $black 	  $bright_black $gray     $black
-client.unfocused        $black        $black	  $bright_black $gray     $black
-client.urgent           $red          $black	  $red          $red      $red
-client.background       $black
+client.focused          $hard_black   $hard_black $yellow       $yellow   $black
+client.focused_inactive $hard_black   $hard_black $bright_black $gray     $black
+client.unfocused        $hard_black   $hard_black $bright_black $gray     $black
+client.urgent           $red          $hard_black $red          $red      $red
+client.background       $hard_black
 
 #
 # Status Bar:
 #
-# Read `man 3 sway-bar` for more information about this section.
+
 bar {
-    position top
-    status_command /usr/bin/i3status-rs /home/vale/.config/i3status-rust/config.toml
-
-  colors {
-    background $black
-    statusline $white
-    separator  $white
-
-    # Colors           border        background   text
-    focused_workspace  $black        $black      $yellow
-    active_workspace   $black        $black      $bright_black
-    inactive_workspace $black        $black      $bright_black
-    urgent_workspace   $red          $red        $black
-    binding_mode       $magenta      $magenta    $bright_white
-  }
+  status_command yambar
+  mode invisible
 }
 
-# Gnome Crap
-exec_always {
-  gsettings set org.gnome.desktop.interface document-font-name 'Lexend Deca Regular 9'
-  gsettings set org.gnome.desktop.interface font-name 'Lexend Deca Regular 9'
-  gsettings set org.gnome.desktop.interface monospace-font-name 'Lexend Deca Regular 9'
-}
+# Configure Auto-Locking
+bindswitch --reload --locked lid:on exec $lock
+bindsym $mod+Escape exec $lock
 
 # Per Program Config
 exec udiskie
 exec librewolf
 assign [app_id="librewolf"] workspace number 1
 assign [title="Steam"] workspace number 6
+assign [title="Heroic Games Launcher"] workspace number 6
 assign [app_id="org.prismlauncher.PrismLauncher"] workspace number 6
 assign [app_id="virt-manager"] workspace number 9
 exec keepassxc

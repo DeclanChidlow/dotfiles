@@ -25,6 +25,11 @@ o.wrap = false
 o.termguicolors = true
 vim.cmd[[colorscheme srcery]]
 
+-- Spell Check
+o.spelllang = 'en_au'
+o.spell = true
+
+
 --
 -- Plugin Config
 --
