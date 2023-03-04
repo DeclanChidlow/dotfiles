@@ -33,7 +33,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 10x50
+    offset = 10x35
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -57,7 +57,7 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 6
+    padding = 4
 
     # Horizontal padding.
     horizontal_padding = 6
@@ -98,7 +98,7 @@
 
     ### Text ###
 
-    font = Lexend 8
+    font = Lexend 9
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -151,11 +151,11 @@
     # Show age of message if message is older than show_age_threshold
     # seconds.
     # Set to -1 to disable.
-    show_age_threshold = -1
+    show_age_threshold = 60
 
     # Specify where to make an ellipsis in long lines.
     # Possible values are "start", "middle" and "end".
-    ellipsize = middle
+    ellipsize = end
 
     # Ignore newlines '\n' in notifications.
     ignore_newline = no
@@ -182,7 +182,7 @@
     ### Misc/Advanced ###
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/xdg-open
+    browser = /usr/bin/librewolf
 
     # Define the title of the windows spawned by dunst
     title = Dunst
@@ -228,22 +228,23 @@
     # * context_all: Open context menu for all notifications.
     # These values can be strung together for each mouse event, and
     # will be executed in sequence.
-    mouse_left_click = do_action, close_current
+    mouse_left_click = do_action, open_url, close_current
     mouse_middle_click = close_all
     mouse_right_click = close_current
 
 [urgency_low]
-    background = "#3A3A3A"
-    foreground = "#D0BFA1"
+    background = "#262626"
+    foreground = "#FCE8C3"
+    frame_color = "#2C78BF"
     timeout = 10
 
 [urgency_normal]
-    background = "#3A3A3A"
-    foreground = "#D0BFA1"
+    background = "#262626"
+    foreground = "#FCE8C3"
     timeout = 10
 
 [urgency_critical]
-    background = "#3A3A3A"
-    foreground = "#D0BFA1"
+    background = "#262626"
+    foreground = "#FCE8C3"
     frame_color = "#EF2F27"
     timeout = 0
