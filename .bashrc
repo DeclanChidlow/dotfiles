@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # Show user, hostname, and working dir
-PS1='[\u@\h \w]\$ '
+PS1='\e[0;35m┌\e[m\e[0;36m[\u@\h]\e[m\e[0;35m─\e[m\e[0;36m[\w]\e[m\e[m\e[0;35m$\n└─>\e[m '
 
 # VIM everywhere
 set -o vi
@@ -18,10 +18,10 @@ complete -cf doas
 export HISTCONTROL=ignoredups
 
 # Alias
-alias ls='exa --icons --classify'
-alias tree='exa --icons --tree'
+alias ls='exa --classify'
+alias tree='exa --tree'
 alias dir='dir --color=auto'
-alias vdir='exa --icons --long'
+alias vdir='exa --long'
 alias grep='grep --color=auto'
 alias ping='ping -c 5'
 alias vim='nvim'
@@ -37,12 +37,6 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
-
-# Nice Opening
-clear
-
-printf " %s\n" "UPTIME: $(uptime -p)"
-printf " %s\n" "MEMORY: $(free -m -h | awk '/Mem/{print $3"/"$2}')"
 
 # Reminder
 remindme() {
