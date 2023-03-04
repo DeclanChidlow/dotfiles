@@ -1,0 +1,107 @@
+bar:
+  height: 40
+  location: top
+  background: 121212ff
+  foreground: FCE8C3ff
+  font: Lexend:size=24
+  spacing: 10
+
+  left:
+  - i3:
+      sort: ascending
+      content:
+        "":
+          map:
+            margin: 10
+            default:
+            - string:
+                text: "{name}"
+                foreground: 918175ff
+            conditions:
+              state == focused:
+              - string: 
+                  text: "{name}"
+                  foreground: FBB829ff
+              state == urgent:
+              - string:
+                  text: "{name}"
+                  foreground: EF2F27ff
+
+  center:
+  - clock:
+      date-format: "%d/%m"
+      content:
+      - string: 
+          text: "{date} {time}"
+          foreground: E02C6Dff
+  right:
+  - removables:
+        spacing: 10
+        content:
+          map:
+            conditions:
+              mounted:
+              - string:
+                  text: "USB: {label}"
+                  foreground: 2C78BFff
+                  on-click:
+                    left: alacritty -e mc {mount_point}
+                    right: udisksctl unmount -b {device}
+
+  - network:
+      name: wlp166s0
+      content:
+        map:
+          on-click: alacritty -e nmtui
+          conditions:
+              state == up:
+              - string:
+                  text: "NET: UP"
+                  foreground: 519F50ff
+              state == down:
+              - string:
+                  text: "NET: DWN"
+                  foreground: EF2F27ff
+
+  - alsa:
+      card: default
+      mixer: Master
+      content:
+        map:
+          on-click:
+            left: amixer set Master toggle
+            right: alacritty -e alsamixer
+            wheel-up: amixer set Master 1%+
+            wheel-down: amixer set Master 1%-
+          conditions:
+            muted:
+            - string:
+                text: "VOL: MUT {percent}%"
+                foreground: EF2F27ff
+            ~muted:
+            - string:
+                text: "VOL: {percent}%"
+
+  - backlight:
+      name: intel_backlight
+      content:
+      - string:
+          text: "LGT: {percent}%"
+          on-click:
+            left: xbacklight 50
+            right: xbacklight 5
+            wheel-up: xbacklight -inc 1
+            wheel-down: xbacklight -dec 1
+
+  - battery:
+      name: BAT1
+      content:
+      - ramp:
+          on-click: alacritty -e sudo powertop
+          tag: capacity
+          items:
+          - string: {text: "BAT: {capacity}%", foreground: EF2F27ff}
+          - string: {text: "BAT: {capacity}%", foreground: D75F00ff}
+          - string: {text: "BAT: {capacity}%", foreground: FBB829ff}
+          - string: {text: "BAT: {capacity}%", foreground: 2C78BFff}
+          - string: {text: "BAT: {capacity}%", foreground: 519F50ff}
