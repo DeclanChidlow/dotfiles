@@ -1,7 +1,10 @@
 font=Lexend
-image=/home/vale/Pictures/Wallpaper/lockwallpaper.png
-indicator-y-position=395
+image=/home/vale/.config/swaylock/lockwallpaper.png
+indicator-y-position=420
 line-uses-inside
+
+indicator-radius=65
+indicator-thickness=13
 
 text-color=FCE8C3
 inside-color=11111100

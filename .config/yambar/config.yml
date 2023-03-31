@@ -4,7 +4,7 @@ bar:
   background: 121212ff
   foreground: FCE8C3ff
   font: Lexend:size=24
-  spacing: 10
+  spacing: 8
 
   left:
   - i3:
@@ -12,57 +12,45 @@ bar:
       content:
         "":
           map:
-            margin: 10
+            margin: 2
             default:
             - string:
-                text: "{name}"
+                text: " {name} "
                 foreground: 918175ff
             conditions:
               state == focused:
               - string: 
-                  text: "{name}"
+                  text: " {name} "
                   foreground: FBB829ff
+                  deco: {overline: {color: FBB829ff, size: 3}}
               state == urgent:
               - string:
-                  text: "{name}"
+                  text: " {name} "
                   foreground: EF2F27ff
-
+                  deco: {overline: {color: EF2F27ff, size: 3}}
   center:
-  - clock:
-      date-format: "%d/%m"
-      content:
-      - string: 
-          text: "{date} {time}"
-          foreground: E02C6Dff
-  right:
-  - removables:
-        spacing: 10
+    - mpd:
+        host: /run/user/1000/mpd/socket
         content:
           map:
+            margin: 10
             conditions:
-              mounted:
+              state == offline: 
               - string:
-                  text: "USB: {label}"
+                  text: ""
+              state == stopped:
+              - string:
+                  text: ""
+              state == paused:
+              - string:
+                  text: ""
+              state == playing:
+              - string:
+                  text: " {title} - {album} - {artist} "
                   foreground: 2C78BFff
-                  on-click:
-                    left: alacritty -e mc {mount_point}
-                    right: udisksctl unmount -b {device}
-
-  - network:
-      name: wlp166s0
-      content:
-        map:
-          on-click: alacritty -e nmtui
-          conditions:
-              state == up:
-              - string:
-                  text: "NET: UP"
-                  foreground: 519F50ff
-              state == down:
-              - string:
-                  text: "NET: DWN"
-                  foreground: EF2F27ff
-
+                  deco: {overline: {color: 2C78BFff, size: 3}}
+  
+  right:
   - alsa:
       card: default
       mixer: Master
@@ -76,17 +64,39 @@ bar:
           conditions:
             muted:
             - string:
-                text: "VOL: MUT {percent}%"
+                text: " VOL: MUT {percent}% "
                 foreground: EF2F27ff
+                deco: {overline: {color: EF2F27ff, size: 3}}
             ~muted:
             - string:
-                text: "VOL: {percent}%"
+                text: " VOL: {percent}% "
+                foreground: 2C78BFff
+                deco: {overline: {color: 2C78BFff, size: 3}}
+
+  - network:
+      name: wlp166s0
+      content:
+        map:
+          on-click: alacritty -e nmtui
+          conditions:
+              state == up:
+              - string:
+                  text: " NET: UP "
+                  foreground: 519F50ff
+                  deco: {overline: {color: 519F50ff, size: 3}}
+              state == down:
+              - string:
+                  text: " NET: DWN "
+                  foreground: EF2F27ff
+                  deco: {overline: {color: EF2F27ff, size: 3}}
 
   - backlight:
       name: intel_backlight
       content:
       - string:
-          text: "LGT: {percent}%"
+          text: " LGT: {percent}% "
+          foreground: FBB829ff
+          deco: {overline: {color: FBB829ff, size: 3}}
           on-click:
             left: xbacklight 50
             right: xbacklight 5
@@ -100,8 +110,16 @@ bar:
           on-click: alacritty -e sudo powertop
           tag: capacity
           items:
-          - string: {text: "BAT: {capacity}%", foreground: EF2F27ff}
-          - string: {text: "BAT: {capacity}%", foreground: D75F00ff}
-          - string: {text: "BAT: {capacity}%", foreground: FBB829ff}
-          - string: {text: "BAT: {capacity}%", foreground: 2C78BFff}
-          - string: {text: "BAT: {capacity}%", foreground: 519F50ff}
+          - string: {text: " BAT: {capacity}% ", foreground: EF2F27ff, deco: {overline: {color: EF2F27ff, size: 3}}}
+          - string: {text: " BAT: {capacity}% ", foreground: D75F00ff, deco: {overline: {color: D75F00ff, size: 3}}}
+          - string: {text: " BAT: {capacity}% ", foreground: FBB829ff, deco: {overline: {color: FBB829ff, size: 3}}}
+          - string: {text: " BAT: {capacity}% ", foreground: 2C78BFff, deco: {overline: {color: 2C78BFff, size: 3}}}
+          - string: {text: " BAT: {capacity}% ", foreground: 519F50ff, deco: {overline: {color: 519F50ff, size: 3}}}
+
+  - clock:
+      date-format: "%d/%m"
+      content:
+      - string: 
+          text: " {date} {time} "
+          foreground: E02C6Dff
+          deco: {overline: {color: E02C6Dff, size: 3}}

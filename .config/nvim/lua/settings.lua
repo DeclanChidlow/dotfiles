@@ -24,11 +24,14 @@ o.wrap = false
 -- Configure colours
 o.termguicolors = true
 vim.cmd[[colorscheme srcery]]
+vim.cmd([[highlight Normal ctermbg=none guibg=none]])
 
 -- Spell Check
 o.spelllang = 'en_au'
 o.spell = true
 
+-- Use System Keyboard
+o.clipboard = 'unnamedplus'
 
 --
 -- Plugin Config

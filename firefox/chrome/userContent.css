@@ -1,0 +1,22 @@
+/* Better new tab screen */
+@-moz-document url("about:newtab"), url("about:home"){
+  body{
+    background-image: url("backgrounds/treeslake.jpg"); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  .search-wrapper {
+    display: none;
+  }
+
+  .icon {
+    opacity: 30%;
+  }
+
+  .customize-menu {
+    background-color: #1c1b19 !important;
+  }
+}

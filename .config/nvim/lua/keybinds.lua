@@ -12,6 +12,16 @@ map('i', '""', '""<Left>')
 map('i', "''", "''<Left>")
 map('i', '``', '``<Left>')
 
+-- Move keys
+map('n', '<M-n>', 'h')
+map('v', '<M-n>', 'h')
+map('n', '<M-e>', 'j')
+map('v', '<M-e>', 'j')
+map('n', '<M-i>', 'k')
+map('v', '<M-i>', 'k')
+map('n', '<M-o>', 'l')
+map('v', '<M-o>', 'l')
+
 --
 -- COC
 --

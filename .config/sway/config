@@ -5,7 +5,7 @@ set $mod Mod4
 
 # Your variables
 set $term alacritty
-set $fileman pcmanfm-qt
+set $fileman $term -e vifm
 set $menu bemenu-run -p Search: -i -H 20 --fn "pango:Lexend Deca 9" --fb "$hard_black" --ff "$blue" --nb "$hard_black" --nf "$bright_white" --tb "$hard_black" --hb "$hard_black" --tf "$magenta" --hf "$magenta" --nf "$bright_white" --af "$bright_white" --ab "$hard_black"
 set $lock 'swaylock -F -f'
 
@@ -110,16 +110,12 @@ input type:keyboard {
 bindsym $mod+r mode "resize"
 
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
     bindsym Left resize shrink width 10px
     bindsym Shift+Left resize shrink width 20px
-    bindsym Down resize grow height 10px
-    bindsym Shift+Down resize grow height 20px
-    bindsym Up resize shrink height 10px
-    bindsym Shift+Up resize shrink height 20px
+    bindsym Down resize shrink height 10px
+    bindsym Shift+Down resize shrink height 20px
+    bindsym Up resize grow height 10px
+    bindsym Shift+Up resize grow height 20px
     bindsym Right resize grow width 10px
     bindsym Shift+Right resize grow width 20px
 
@@ -134,7 +130,7 @@ mode "resize" {
 
 # F1
 bindsym --locked XF86AudioMute exec amixer set Master toggle
-bindsym --locked Shift+XF86AudioMute exec pavucontrol
+bindsym --locked Shift+XF86AudioMute exec $term -e amixer
 # F2
 bindsym --locked XF86AudioLowerVolume exec amixer set Master 1%-
 bindsym --locked Shift+XF86AudioLowerVolume exec amixer set Master 10%-
@@ -142,25 +138,28 @@ bindsym --locked Shift+XF86AudioLowerVolume exec amixer set Master 10%-
 bindsym --locked XF86AudioRaiseVolume exec amixer set Master 1%+
 bindsym --locked Shift+XF86AudioRaiseVolume exec amixer set Master 10%+
 # F4
-bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym --locked XF86AudioPrev exec mpc prev
+bindsym --locked Shift+XF86AudioPrev exec playerctl previous
 # F5
-bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPlay exec mpc toggle
+bindsym --locked Shift+XF86AudioPlay exec playerctl play-pause
 # F6
-bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioNext exec mpc next
+bindsym --locked Shift+XF86AudioNext exec playerctl next
 # F7
 bindsym --locked XF86MonBrightnessDown exec xbacklight -dec 5
-bindsym --locked Shift+XF86MonBrightnessDown exec busctl --user call -- rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100 
 # F8
 bindsym --locked XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym --locked Shift+XF86MonBrightnessUp exec busctl --user call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n 100
 # F11
 bindsym Print exec sway-screenshot -o /home/vale/Pictures/screenshots -m output 
 bindsym Shift+Print exec sway-screenshot -o /home/vale/Pictures/screenshots -m region
+bindsym Ctrl+Print exec mpv --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0
 # F12
 bindsym XF86AudioMedia exec $term -e btop
+bindsym Shift+XF86AudioMedia exec $term -e ncmpcpp
 
 # Aesthetics
-font pango:Lexend Deca Regular 9
+font pango:Lexend Regular 9
 
 hide_edge_borders smart_no_gaps
 title_align center
@@ -221,11 +220,30 @@ bindsym $mod+Escape exec $lock
 
 # Per Program Config
 exec udiskie
-exec librewolf
-assign [app_id="librewolf"] workspace number 1
+exec dunst
+exec firefox
+assign [app_id="firefox"] workspace number 1
 assign [title="Steam"] workspace number 6
 assign [title="Heroic Games Launcher"] workspace number 6
 assign [app_id="org.prismlauncher.PrismLauncher"] workspace number 6
 assign [app_id="virt-manager"] workspace number 9
 exec keepassxc
 assign [app_id="org.keepassxc.KeePassXC"] workspace number 10
+
+# Floating Configs
+for_window [title="Picture-in-Picture$"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="Pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="Bubble"] floating enable
+for_window [window_role="dialog"] floating enable
+for_window [window_role="Dialog"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="Dialog"] floating enable
+for_window [class="dialog"] floating enable
+for_window [class="Dialog"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [window_role="About"] floating enable
+
+include ~/.config/sway/config.d/*.conf
