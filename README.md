@@ -1,10 +1,10 @@
 <h1 align="center">
   Dot Files
   
-  [![Stars](https://img.shields.io/github/stars/DeclanChidlow/dotfiles?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/Template/stargazers)
-  [![Forks](https://img.shields.io/github/forks/DeclanChidlow/dotfiles?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/Template/network/members)
-  [![Pull Requests](https://img.shields.io/github/issues-pr/DeclanChidlow/dotfiles?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/Template/pulls)
-  [![Issues](https://img.shields.io/github/issues/DeclanChidlow/dotfiles?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/Template/issues)
+  [![Stars](https://img.shields.io/github/stars/DeclanChidlow/dotfiles?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/dotfiles/stargazers)
+  [![Forks](https://img.shields.io/github/forks/DeclanChidlow/dotfiles?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/dotfiles/network/members)
+  [![Pull Requests](https://img.shields.io/github/issues-pr/DeclanChidlow/dotfiles?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/dotfiles/pulls)
+  [![Issues](https://img.shields.io/github/issues/DeclanChidlow/dotfiles?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/dotfiles/issues)
   [![Contributors](https://img.shields.io/github/contributors/DeclanChidlow/dotfiles?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/dotfiles/graphs/contributors)
   [![Licence](https://img.shields.io/github/license/DeclanChidlow/dotfiles?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/dotfiles/blob/main/LICENCE)
 </h1>
