@@ -1,7 +1,7 @@
 /* Better new tab screen */
 @-moz-document url("about:newtab"), url("about:home"){
   body{
-    background-image: url("backgrounds/treeslake.jpg"); 
+    background-image: url(""); 
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

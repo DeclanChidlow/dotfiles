@@ -1,0 +1,5 @@
+directory: ~/Audio/Music
+library: ~/Audio/Music/musiclibrary.db
+
+import:
+  move: yes

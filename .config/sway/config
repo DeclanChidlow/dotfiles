@@ -1,30 +1,29 @@
-### Variables
-#
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
+# Declan "Vale" Chidlow's personal configuration file for SwayWM
+# https://github.com/DeclanChidlow/dotfiles
+# https://vale.rocks
 
-# Your variables
-set $term alacritty
-set $fileman $term -e vifm
-set $menu bemenu-run -p Search: -i -H 20 --fn "pango:Lexend Deca 9" --fb "$hard_black" --ff "$blue" --nb "$hard_black" --nf "$bright_white" --tb "$hard_black" --hb "$hard_black" --tf "$magenta" --hf "$magenta" --nf "$bright_white" --af "$bright_white" --ab "$hard_black"
-set $lock 'swaylock -F -f'
-
-### Input configuration
+## Variables
 #
-input type:touchpad {
+	set $mod Mod4
+	set $term kitty
+	set $fileman $term -e vifm
+	set $menu bemenu-run -p 󰍉 -i -H 20 --fn "pango:Lexend Deca 9" --fb "$hard_black" --ff "$blue" --nb "$hard_black" --nf "$bright_white" --tb "$hard_black" --hb "$hard_black" --tf "$magenta" --hf "$magenta" --nf "$bright_white" --af "$bright_white" --ab "$hard_black"
+	set $lock 'swaylock -F -f'
+
+## Input configuration
+#
+	input type:touchpad {
         tap enabled
-	middle_emulation enabled
-	left_handed enabled
-}
+		middle_emulation enabled
+		left_handed enabled
+	}
     
-input type:keyboard {
-	xkb_layout us
-	xkb_variant colemak_dh
-}
+	input type:keyboard {
+		xkb_layout us
+		xkb_variant colemak_dh
+	}
 
-### Key bindings
-#
-# Basics:
+## Key bindings
 #
     # Start predetermined programs
     bindsym $mod+Return exec $term
@@ -39,35 +38,27 @@ input type:keyboard {
     # Start your launcher
     bindsym $mod+q exec $menu
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-
-# Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
+    floating_modifier $mod inverse
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-    # Exit sway (logs you out of your Wayland session)
+    # Exit Sway
     bindsym $mod+Shift+e exec swaynag -t warning -m 'Are you sure you want to exit sway?' -B 'Yes' 'swaymsg exit'
+
+## Navigation
 #
-# Moving around:
-#
-    # Use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-#
-# Workspaces:
+
+## Workspaces:
 #
     # Switch to workspace
     bindsym $mod+1 workspace number 1
@@ -80,7 +71,8 @@ input type:keyboard {
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
-    # Move focused container to workspace
+    
+	# Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
     bindsym $mod+Shift+3 move container to workspace number 3
@@ -92,8 +84,7 @@ input type:keyboard {
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
 
-#
-# Layout stuff:
+## Layout stuff:
 #
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -104,146 +95,147 @@ input type:keyboard {
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
+## Resizing containers:
 #
-# Resizing containers:
+	bindsym $mod+r mode "resize"
+
+	mode "resize" {
+    	bindsym Left resize shrink width 10px
+ 	   bindsym Shift+Left resize shrink width 20px
+ 	   bindsym Down resize shrink height 10px
+ 	   bindsym Shift+Down resize shrink height 20px
+ 	   bindsym Up resize grow height 10px
+ 	   bindsym Shift+Up resize grow height 20px
+ 	   bindsym Right resize grow width 10px
+ 	   bindsym Shift+Right resize grow width 20px
+
+ 	   # Return to default mode
+ 	   bindsym Return mode "default"
+ 	   bindsym Escape mode "default"
+	}
+
+## Keyboard control buttons
 #
-bindsym $mod+r mode "resize"
-
-mode "resize" {
-    bindsym Left resize shrink width 10px
-    bindsym Shift+Left resize shrink width 20px
-    bindsym Down resize shrink height 10px
-    bindsym Shift+Down resize shrink height 20px
-    bindsym Up resize grow height 10px
-    bindsym Shift+Up resize grow height 20px
-    bindsym Right resize grow width 10px
-    bindsym Shift+Right resize grow width 20px
-
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-#
-# Keyboard Control Buttons
-#
-
-# F1
-bindsym --locked XF86AudioMute exec amixer set Master toggle
-bindsym --locked Shift+XF86AudioMute exec $term -e amixer
-# F2
-bindsym --locked XF86AudioLowerVolume exec amixer set Master 1%-
-bindsym --locked Shift+XF86AudioLowerVolume exec amixer set Master 10%-
-# F3
-bindsym --locked XF86AudioRaiseVolume exec amixer set Master 1%+
-bindsym --locked Shift+XF86AudioRaiseVolume exec amixer set Master 10%+
-# F4
-bindsym --locked XF86AudioPrev exec mpc prev
-bindsym --locked Shift+XF86AudioPrev exec playerctl previous
-# F5
-bindsym --locked XF86AudioPlay exec mpc toggle
-bindsym --locked Shift+XF86AudioPlay exec playerctl play-pause
-# F6
-bindsym --locked XF86AudioNext exec mpc next
-bindsym --locked Shift+XF86AudioNext exec playerctl next
-# F7
-bindsym --locked XF86MonBrightnessDown exec xbacklight -dec 5
-# F8
-bindsym --locked XF86MonBrightnessUp exec xbacklight -inc 5
-# F11
-bindsym Print exec sway-screenshot -o /home/vale/Pictures/screenshots -m output 
-bindsym Shift+Print exec sway-screenshot -o /home/vale/Pictures/screenshots -m region
-bindsym Ctrl+Print exec mpv --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0
-# F12
-bindsym XF86AudioMedia exec $term -e btop
-bindsym Shift+XF86AudioMedia exec $term -e ncmpcpp
+	# F1
+	bindsym --locked XF86AudioMute exec amixer set Master toggle
+	bindsym --locked Shift+XF86AudioMute exec $term -e amixer
+	# F2
+	bindsym --locked XF86AudioLowerVolume exec amixer set Master 1%-
+	bindsym --locked Shift+XF86AudioLowerVolume exec amixer set Master 10%-
+	# F3
+	bindsym --locked XF86AudioRaiseVolume exec amixer set Master 1%+
+	bindsym --locked Shift+XF86AudioRaiseVolume exec amixer set Master 10%+
+	# F4
+	bindsym --locked XF86AudioPrev exec mpc prev
+	bindsym --locked Shift+XF86AudioPrev exec playerctl previous
+	# F5
+	bindsym --locked XF86AudioPlay exec mpc toggle
+	bindsym --locked Shift+XF86AudioPlay exec playerctl play-pause
+	# F6
+	bindsym --locked XF86AudioNext exec mpc next
+	bindsym --locked Shift+XF86AudioNext exec playerctl next
+	# F7
+	bindsym --locked XF86MonBrightnessDown exec xbacklight -dec 1
+	bindsym --locked Shift+XF86MonBrightnessDown exec xbacklight -dec 10
+	# F8
+	bindsym --locked XF86MonBrightnessUp exec xbacklight -inc 1
+	bindsym --locked Shift+XF86MonBrightnessUp exec xbacklight -inc 10
+	# F11
+	bindsym Print exec sway-screenshot -o /home/vale/Pictures/screenshots -m output 
+	bindsym Shift+Print exec sway-screenshot -o /home/vale/Pictures/screenshots -m region
+	bindsym Ctrl+Print exec mpv --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0
+	# F12
+	bindsym XF86AudioMedia exec $term -e btop
+	bindsym Shift+XF86AudioMedia exec $term -e ncmpcpp
 
 # Aesthetics
-font pango:Lexend Regular 9
+	font pango:Lexend Regular 9
 
-hide_edge_borders smart_no_gaps
-title_align center
+	title_align center
 
-set $black #1C1B19
-set $bright_black #918175
+	gaps inner 5
+	smart_gaps on
 
-set $red #EF2F27
-set $bright_red #F75341
+	set $black #121212
 
-set $green #519F50
-set $bright_green #98BC37
+	set $white #B39F91
+	set $bright_white #FFEAD0
+	
+	set $red #EF2F27
+	set $bright_red #F75341
+	
+	set $orange #D75F00
+	set $bright_orange #FF8700
 
-set $yellow #FBB829
-set $bright_yellow #FED06E
+	set $yellow #FBB829
+	set $bright_yellow #FED06E
 
-set $blue #2C78BF
-set $bright_blue #68A8E4
+	set $green #519F50
+	set $bright_green #98BC37
 
-set $magenta #E02C6D
-set $bright_magenta #FF5C8F
+	set $blue #2C78BF
+	set $bright_blue #68A8E4
 
-set $cyan #0AAEB3
-set $bright_cyan #53FDE9
+	set $cyan #0AAEB3
+	set $bright_cyan #53FDE9
 
-set $white #D0BFA1
-set $bright_white #FCE8C3
+	set $magenta #E02C6D
+	set $bright_magenta #FF5C8F
+	
+	set $gray #4E4E4E
+	set $bright_gray #262626
 
-set $orange #D75F00
-set $bright_orange #FF8700
+	output "*" bg /home/vale/.config/sway/wallpaper.png fill
 
-set $gray #4E4E4E
-set $bright_gray #262626
+## Colors
+#							border      background text       indicator  child_border
+	client.focused          $black      $black     $yellow    $black     $black
+	client.focused_inactive $black      $black     $white     $black     $black
+	client.unfocused        $black      $black     $white     $black     $black
+	client.urgent           $black      $black     $red       $red       $black
+	client.background       $black
 
-set $hard_black #121212
-
-output "*" bg /home/vale/Pictures/Wallpaper/mainwallpaper.png fill
-
-# Colors                border        background  text          indicator child_border
-client.focused          $hard_black   $hard_black $yellow       $yellow   $black
-client.focused_inactive $hard_black   $hard_black $bright_black $gray     $black
-client.unfocused        $hard_black   $hard_black $bright_black $gray     $black
-client.urgent           $red          $hard_black $red          $red      $red
-client.background       $hard_black
-
+## Status bar
 #
-# Status Bar:
+	bar {
+	  status_command yambar
+  	mode invisible
+	}
+
+## Configure power and locking
 #
+	bindswitch --reload --locked lid:on exec $lock
+	bindsym XF86PowerOff exec $lock
+	bindsym $mod+XF86PowerOff exec systemctl poweroff
+	bindsym $mod+Shift+XF86PowerOff exec systemctl reboot
 
-bar {
-  status_command yambar
-  mode invisible
-}
+## Per program config
+#
+	exec dunst
+	exec firefox
+	assign [app_id="firefox"] workspace number 1
+	assign [title="Steam"] workspace number 6
+	assign [title="Heroic Games Launcher"] workspace number 6
+	assign [app_id="org.prismlauncher.PrismLauncher"] workspace number 6
+	assign [app_id="virt-manager"] workspace number 9
+	exec keepassxc
+	assign [app_id="org.keepassxc.KeePassXC"] workspace number 10
 
-# Configure Auto-Locking
-bindswitch --reload --locked lid:on exec $lock
-bindsym $mod+Escape exec $lock
-
-# Per Program Config
-exec udiskie
-exec dunst
-exec firefox
-assign [app_id="firefox"] workspace number 1
-assign [title="Steam"] workspace number 6
-assign [title="Heroic Games Launcher"] workspace number 6
-assign [app_id="org.prismlauncher.PrismLauncher"] workspace number 6
-assign [app_id="virt-manager"] workspace number 9
-exec keepassxc
-assign [app_id="org.keepassxc.KeePassXC"] workspace number 10
-
-# Floating Configs
-for_window [title="Picture-in-Picture$"] floating enable
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="Pop-up"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [window_role="Bubble"] floating enable
-for_window [window_role="dialog"] floating enable
-for_window [window_role="Dialog"] floating enable
-for_window [window_type="dialog"] floating enable
-for_window [window_type="Dialog"] floating enable
-for_window [class="dialog"] floating enable
-for_window [class="Dialog"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_type="menu"] floating enable
-for_window [window_role="About"] floating enable
+## Floating configs
+#
+	for_window [title="Picture-in-Picture$"] floating enable
+	for_window [window_role="pop-up"] floating enable
+	for_window [window_role="Pop-up"] floating enable
+	for_window [window_role="bubble"] floating enable
+	for_window [window_role="Bubble"] floating enable
+	for_window [window_role="dialog"] floating enable
+	for_window [window_role="Dialog"] floating enable
+	for_window [window_type="dialog"] floating enable
+	for_window [window_type="Dialog"] floating enable
+	for_window [class="dialog"] floating enable
+	for_window [class="Dialog"] floating enable
+	for_window [window_role="task_dialog"] floating enable
+	for_window [window_type="menu"] floating enable
+	for_window [window_role="About"] floating enable
 
 include ~/.config/sway/config.d/*.conf

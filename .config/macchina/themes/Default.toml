@@ -1,0 +1,7 @@
+hide_ascii = true
+separator = "->"
+
+[box]
+title = "Framework 13 Laptop"
+border = "rounded"
+visible = true

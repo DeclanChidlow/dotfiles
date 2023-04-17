@@ -23,8 +23,10 @@ user_pref("layout.spellcheckDefault", 2);
 // Backspace to go back to top
 user_pref("browser.backspace_action", 1);
 
-// Enable VA-API Hardware Acceleration
+// Enable Hardware Acceleration
 user_pref("media.ffmpeg.vaapi.enabled", true);
+user_pref("media.rdd-ffmpeg.enabled", true);
+user_pref("media.navigator.mediadatadecoder_vpx_enabled", true);
 
 // Improve Fonts and Emoji
 user_pref("gfx.font_rendering.fontconfig.max_generic_substitutions", 127);

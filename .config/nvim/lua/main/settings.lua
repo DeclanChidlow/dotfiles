@@ -2,7 +2,7 @@ local o = vim.o
 local wo = vim.wo
 local bo = vim.bo
 
--- File Type
+-- File type detection
 o.filetype = true
 o.filetypeplugin = true
 o.filetypeindent = true
@@ -21,29 +21,18 @@ o.number = true
 -- No line wrap
 o.wrap = false
 
--- Configure colours
-o.termguicolors = true
-vim.cmd[[colorscheme srcery]]
-vim.cmd([[highlight Normal ctermbg=none guibg=none]])
+-- Improve search
+o.ignorecase = true
+o.smartcase = true
+o.hlsearch = false
 
--- Spell Check
+-- Better tabs
+o.tabstop = 4
+o.shiftwidth = 4
+
+-- Spell check
 o.spelllang = 'en_au'
 o.spell = true
 
--- Use System Keyboard
+-- Use system clipboard
 o.clipboard = 'unnamedplus'
-
---
--- Plugin Config
---
-
-local ccc = require("ccc")
-local mapping = ccc.mapping
-ccc.setup({
-	highlighter = {
-    		---@type boolean
-    		auto_enable = true
-	}
-})
-
-require('gitsigns').setup()

@@ -1,0 +1,7 @@
+# Declan "Vale" Chidlow's personal configuration file for Macchina
+# https://github.com/DeclanChidlow/dotfiles
+# https://vale.rocks
+
+theme = "Default"
+
+show = ["Kernel", "Packages", "Uptime", "ProcessorLoad", "Memory", "Battery"]

@@ -138,7 +138,7 @@ filextype {*.djvu},<image/vnd.djvu>
         \ zathura %f,
 
 " Audio
-filetype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus},<audio/*>
+filextype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus},<audio/*>
         \ mpv --no-video %c %s,
 fileviewer {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.aac}
         \ ffprobe -hide_banner -pretty %c 2>&1
@@ -160,9 +160,9 @@ filetype {*.[1-8]},<text/troff> man ./%c
 fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " Images
-filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-        \ imv-dir %f
-fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
+filetype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+        \ imv-dir %c
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ img2txt %c
 
 " MD5
