@@ -7,7 +7,7 @@
 	set $mod Mod4
 	set $term kitty
 	set $fileman $term -e vifm
-	set $menu bemenu-run -p 󰍉 -i -H 20 --fn "pango:Lexend Deca 9" --fb "$hard_black" --ff "$blue" --nb "$hard_black" --nf "$bright_white" --tb "$hard_black" --hb "$hard_black" --tf "$magenta" --hf "$magenta" --nf "$bright_white" --af "$bright_white" --ab "$hard_black"
+	set $menu bemenu-run -p 󰍉 -i -H 20 --fn "pango:Lexend Deca 9" --fb "$black" --ff "$blue" --nb "$black" --nf "$bright_white" --tb "$black" --hb "$black" --tf "$magenta" --hf "$magenta" --nf "$bright_white" --af "$bright_white" --ab "$black"
 	set $lock 'swaylock -F -f'
 
 ## Input configuration
@@ -153,8 +153,8 @@
 
 	title_align center
 
-	gaps inner 5
-	smart_gaps on
+	default_border pixel 3
+	hide_edge_borders both
 
 	set $black #121212
 
