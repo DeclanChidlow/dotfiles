@@ -30,7 +30,7 @@ set vimhelp
 set norunexec
 
 " List of color schemes to try (picks the first one supported by the terminal)
-colorscheme Default-256 Default
+colorscheme Default
 
 " Format for displaying time in file list.
 set timefmt='%d/%m/%Y %H:%M'
@@ -40,6 +40,9 @@ set wildmenu
 
 " Display completions in a form of popup with descriptions of the matches
 set wildstyle=popup
+
+" Show dotfiles by default
+set dotfiles
 
 " Display suggestions in normal, visual and view modes for keys, marks and
 " registers (at most 5 files).  In other view, when available.
@@ -73,6 +76,7 @@ set statusline="%t %= %A %s %d"
 
 mark h ~/
 mark c ~/.config
+mark g ~/gitrepos
 mark m /run/media
 mark r /
 
@@ -107,75 +111,39 @@ command! reload :write | restart full
 " File type associations
 ""
 
-" Pdf
-filextype {*.pdf},
-	\<application/pdf>
-	\ sioyek %c %i &
-fileviewer {*.pdf},
-	\<application/pdf>
-	\ pdftotext -nopgbrk %c -
-
 " Audio
-filetype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*aac},
+filetype {*.aup,*.cue,*.flac,*.m4a,*.mp3,*.ogg,*.opus,*.wav},
 	\<audio/*>
     \ mpv --no-video %c %s,
-fileviewer {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.aac},
+fileviewer {*.aup,*.cue,*.flac,*.m4a,*.mp3,*.ogg,*.opus,*.wav},
 	\<audio/*>
     \ ffprobe -hide_banner -pretty %c 2>&1
 
 " Video
-filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,*.as[fx]},
+filetype {*.avi,*.flv,*.m4v,*.mkv,*.mov,*.mp4,*.mpeg,*.mpg,*.webm,*.mts,*.3gp},
 	\<video/*>
 	\ mpv %c %s,
-fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,*.as[fx]},
+fileviewer {*.avi,*.flv,*.m4v,*.mkv,*.mov,*.mp4,*.mpeg,*.mpg,*.webm,*.mts,*.3gp},
 	\<video/*>
 	\ ffprobe -hide_banner -pretty %c 2>&1
 
 " Images
-filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},
-	\<image/*>
+filextype {*.bmp,*.gif,*.jpeg,*.jpg,*.png,*.webp,*.avif,*.heic}
 	\ imv-dir &
-fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},
-	\<image/*>
-	\ shellpic %c
+fileviewer {*.bmp,*.gif,*.jpeg,*.jpg,*.png,*.webp,*.avif,*.heic}
+	\ kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py %c >/dev/tty </dev/tty %N
+    \ %pc
+    \ kitten icat --clear --silent >/dev/tty </dev/tty %N
 
-" MD5
-filetype *.md5
-       \ {Check MD5 hash sum}
-       \ md5sum -c %f %S,
-
-" SHA1
-filetype *.sha1
-       \ {Check SHA1 hash sum}
-       \ sha1sum -c %f %S,
-
-" SHA256
-filetype *.sha256
-       \ {Check SHA256 hash sum}
-       \ sha256sum -c %f %S,
-
-" SHA512
-filetype *.sha512
-       \ {Check SHA512 hash sum}
-       \ sha512sum -c %f %S,
-
-" GPG signature
-filetype {*.asc},<application/pgp-signature>
-       \ {Check signature}
-       \ !!gpg --verify %c,
-
-" Torrent
-filetype {*.torrent},<application/x-bittorrent> ktorrent %f &
-fileviewer {*.torrent},<application/x-bittorrent> dumptorrent -v %c
+" PDF
+filextype {*.pdf},
+	\ sioyek %c %i &
+fileviewer {*.pdf},
+	\ pdftotext -nopgbrk %c -
 
 " Office files
-filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
-	\<application/vnd.openxmlformats-officedocument.*,application/msword,\application/vnd.ms-excel>
+filextype {*.odt,*.ott,*.fodt,*.docx,*.dotx,*.doc,*.odp,*.odg,*.otp,*.fodp,*.ppt,*.pot,*.pptx,*.pptm,*.potx,*.potm,*.ods,*.ots,*.fods,*.xls,*.xlw,*.xlt,*.xlsx,*.xlsm,*.xltx,*.xltm},
 	\ libreoffice %f &
-fileviewer {*.doc},<application/msword> catdoc %c
-fileviewer {*.docx},
-	\<application/vnd.openxmlformats-officedocument.wordprocessingml.document>
-	\ docx2txt.pl %f -
 
 " Keybinds
 ""
@@ -228,97 +196,59 @@ nnoremap ? :fzf<cr>
 " Icons
 ""
 
-" https://github.com/rockyzhang24/dotfiles/blob/master/.config/vifm/icons
-
 " Filetypes
-set classify=' :dir:/, :exe:, :reg:, :link:,? :?:, ::../::'
+set classify+='󰉋 :dir:/,󱆃 :exe:, :reg:,󰌹 :link:,󰡯 :?:,󱞽 ::../::'
 
 " Dirs
-set classify+=' ::.git/::/,
+set classify+='󰉌 ::home/::/,
+			 \  ::.git/::/,
              \  ::.config/::/,
+             \ 󱍙 ::Music/,,Audio/::/,
              \  ::Books/::/,
-             \ 󰃖 ::Documents/::/,
+             \ 󰲂 ::Documents/::/,
              \  ::Development/::/,
-             \  ::Downloads/::/,
-             \  ::gitrepos/::/,
-             \  ::Music/,,Audio/::/,
-             \  ::Pictures/::/,
+             \ 󰉍 ::Downloads/::/,
+             \ 󰉏 ::Pictures/::/,
              \ 󰑴 ::Education/::/,
              \  ::VM/::/,
              \  ::Videos/::/'
 
 " Files
-set classify+=' ::.Xauthority,,.Xdefaults,,.Xresources,,.bash_aliases,,.bashprofile,,.bash_profile,,.bash_logout,,.bash_history,,.bashrc,,.dmrc,,.DS_Store,,.fasd,,.gitconfig,,.gitattributes,,.gitignore,,.inputrc,,.jack-settings,,.mime.types,,.nvidia-settings-rc,,.pam_environment,,.profile,,.recently-used,,.selected_editor,,.tmux.conf,,.xinitrc,,.xinputrc,,config,,bspwmrc,,sxhkdrc,,Makefile,,Makefile.in,,Makefile.ac,,mimeapps.list,,.zshenv,,.zprofile,,.zshrc,,.zlogin,,.zlogout,,vifmrc,,yabairc,,skhdrc,,ini,,user-dirs.dirs::,
-             \  ::.fehbg::,
-             \  ::.vim,,.vimrc,,.viminfo,,init.vim::,
-             \  ::Dockerfile,,docker-compose.yml::,
-             \  ::favicon.ico::,
-             \  ::a.out,,configure::,
-             \  ::config.mk,,config.m4,,config.ac::,
-             \  ::Rakefile::,
-             \  ::gruntfile.coffee,,gruntfile.js,,gruntfile.ls::,
-             \  ::gulpfile.coffee,,gulpfile.js,,gulpfile.ls::,
-             \  ::ledger::,
-             \  ::package.json,,package-lock.json,,webpack.config.js::,
-             \  ::.ncmpcpp,,playlists::,
-             \  ::known_hosts,,authorized_keys,,license,,LICENSE.md,,LICENSE,,LICENSE.txt::,
-             \  ::procfile::,
-             \  ::react.jsx::,
-             \  ::README.rst,,README.md,,README.markdown,,README,,README.txt::'
+set classify+=' ::.gitconfig,,.gitattributes,,.gitignore,,.zshenv,,.zprofile,,.zshrc,,.zlogin,,.zlogout::,
+             \ 󰌆 ::known_hosts,,authorized_keys,,license,,LICENSE.md,,LICENSE,,LICENSE.txt::,'
 
 " Extentions
-set classify+=' ::*.7z,,*.apk,,*.bz2,,*.cpio,,*.deb,,*.gz,,*.gzip,,*.gem,,*.lha,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.tar,,*.tgz,,*.xbps,,*.xz,,*.zip::,
-             \  ::*.a,,*.cmake,,*.jl,,*.o,,*.so::,
-             \  ::*.ai::,
-             \  ::*.asm,,*.css,,*.less,,*.s,,*.sh,,*.zsh::,
-             \  ::*.asp,,*.rom,,*.efi,,*.elf,,*.fish::,
-             \  ::*.aup,,*.cue,,*.flac,,*.m4a,,*.mp3,,*.ogg,,*.wav::,
-             \  ::*.avi,,*.flv,,*.m4v,,*.mkv,,*.mov,,*.mp4,,*.mpeg,,*.mpg,,*.webm::,
-             \  ::*.bat,,*.conf,,*.cvs,,*.htaccess,,*.htpasswd,,*.ini,,*.rc,,*.yaml,,*.yml::,
-             \  ::*.bmp,,*.gif,,*.ico,,*.jpeg,,*.jpg,,*.png,,*.ppt,,*.pptx::,
-             \  ::*.c,,*.h::,
-             \  ::*.cbr,,*.cbz::,
-             \  ::*.class,,*.jar,,*.java::,
-             \  ::*.clj,,*.cljc::,
-             \  ::*.cljs,,*.edn::,
-             \  ::*.coffee::,
-             \  ::*.cs::,
-             \  ::*.cxx,,*.c++,,*.cc,,*.cp,,*.cpp::,
-             \  ::*.d::,
-             \  ::*.dart::,
-             \  ::*.db,,*.dump,,*.img,,*.iso,,*.sql::,
-             \  ::*.diff::,
-             \  ::*.dll,,*.exe,,*.msi::,
-             \  ::*.doc,,*.docx,,*.epub,,*.pdf,,*.rtf,,*.xls,,*.xlsx::,
-             \  ::*.ejs,,*.htm,,*.html,,*.slim,,*.xhtml,,*.xml::,
-             \  ::*.elm::,
-             \  ::*.erl,,*.hrl::,
-             \  ::*.ex,,*.exs,,*.eex::,
-             \  ::*.f#,,*.fs,,*.fsi,,*.fsscript,,*.fsx::,
-             \ | ::*.fifo::,
-             \  ::*.go::,
-             \  ::*.hbs,,*.mustache::,
-             \  ::*.hs,,*.lhs::,
-             \  ::*.js::,
-             \  ::*.json::,
-             \  ::*.jsx::,
-             \  ::*.key,,*.pub::,
-             \  ::*.log::,
-             \  ::*.lua::,
-             \  ::*.markdown,,*.md::,
-             \ λ ::*.ml,,*.mli::,
-             \  ::*.php::,
-             \  ::*.pl,,*.pm,,*.t::,
-             \  ::*.psb,,*.psd::,
-             \  ::*.py,,*.pyc,,*.pyd,,*.pyo::,
-             \  ::*.rb::,
-             \  ::*.rlib,,*.rs::,
-             \  ::*.rss::,
-             \  ::*.scala::,
-             \  ::*.scss::,
-             \  ::*.sln,,*.suo::,
-             \  ::*.styl::,
-             \  ::*.ts::,
-             \  ::*.twig::,
-             \  ::*.vim,,*.vimrc::,
-             \  ::*.xul::'
+set classify+='󰛫 ::*.7z,,*.gz,,*.rar,,*.zip::,
+             \  ::*.conf::,
+             \ 󰅪 ::*.json,,*.yaml,,*.yml,,*.toml::,
+             \  ::*.vim,,*.vimrc::,
+             \ 󰆼 ::*.db,,*.dump,,*.img,,*.iso,,*.sql::,
+             \ 󰌆 ::*.key,,*.pub::,
+             \ 󰎕 ::*.log::,
+             \ 󰑫 ::*.rss,,*.atom::,
+             \ 󰍔 ::*.markdown,,*.md::,
+             \ 󰈦 ::*.pdf::,
+             \ 󰈙 ::*.odt,,*.ott,,*.fodt,,*.docx,,*.dotx,,*.doc,,*.rtf,,*.txt::,
+             \ 󰈧 ::*.odp,,*.odg,,*.otp,,*.fodp,,*.ppt,,*.pot,,*.pptx,,*.pptm,,*.potx,,*.potm::,
+             \ 󰈛 ::*.ods,,*.ots,,*.fods,,*.xls,,*.xlw,,*.xlt,,*.xlsx,,*.xlsm,,*.xltx,,*.xltm::,
+             \ 󰂺 ::*.epub,,*.mobi,,*.azw,,*.azw3,,*.kfx,,*.kpf::,
+             \ 󰖳 ::*.dll,,*.exe,,*.msi::,
+             \ 󰢱 ::*.lua::,
+             \ 󰙱 ::*.c,,*.h::,
+             \ 󰙲 ::*.cc,,*.cpp::,
+             \ 󰌛 ::*.cs::,
+             \ 󰬷 ::*.class,,*.jar,,*.java::,
+             \ 󰌟 ::*.php::,
+             \ 󰌠 ::*.py,,*.pyc,,*.pyd,,*.pyo::,
+             \ 󱘗 ::*.rlib,,*.rs::,
+             \ 󰌝 ::*.html,,*.htmlx,,*.htm::,
+             \ 󰌜 ::*.css,,*.scss::,
+             \ 󰛦 ::*.ts::,
+             \ 󰌞 ::*.js::,
+             \ 󰝚 ::*.aup,,*.cue,,*.flac,,*.m4a,,*.mp3,,*.ogg,,*.opus,,*.wav::,
+             \ 󰓎 ::*.ico::,
+             \ 󰈰 ::*.avi,,*.flv,,*.m4v,,*.mkv,,*.mov,,*.mp4,,*.mpeg,,*.mpg,,*.webm,,*.mts,,*.3gp::,
+             \ 󰋩 ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.png,,*.webp,,*.avif,,*.heic::,
+             \ 󰜡 ::*.svg::,
+             \  ::*.ai,,*.eps,,*.ait::,
+             \  ::*.psb,,*.psd,,*.pdd,,*.psdt,,*.pdp::'
