@@ -24,7 +24,7 @@
     text_icon_padding = 0
 
     frame_width = 1
-    frame_color = "#FBB829"
+    frame_color = "#FFAD1F"
 
 	gap_size = 5
     sort = yes
@@ -66,18 +66,18 @@
 ## Colours
 #
 	[urgency_low]
-  	background = "#262626"
-    foreground = "#FCE8C3"
-    frame_color = "#2C78BF"
+  	background = "#221E1EF2"
+    foreground = "#FFEAD0"
+    frame_color = "#3578C1"
     timeout = 10
 
 	[urgency_normal]
-    background = "#262626"
-    foreground = "#FCE8C3"
+    background = "#221E1EF2"
+    foreground = "#FFEAD0"
     timeout = 10
 
 	[urgency_critical]
-    background = "#262626"
-    foreground = "#FCE8C3"
-    frame_color = "#EF2F27"
+    background = "#221E1EF2"
+    foreground = "#FFEAD0"
+    frame_color = "#F13731"
     timeout = 0
