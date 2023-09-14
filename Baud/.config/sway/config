@@ -23,6 +23,7 @@
 	input type:keyboard {
 		xkb_layout us
 		xkb_variant colemak_dh
+		xkb_options caps:escape
 	}
 
 ## Key bindings
@@ -45,7 +46,7 @@
     	$mod+Shift+c reload
 
     	# Exit Sway
-    	$mod+Shift+e exec swaynag -t warning -m 'Are you sure you want to exit sway?' -B 'Yes' 'swaymsg exit'
+    	$mod+Shift+e exec swaynag -t warning -m 'Do you want to exit Sway?' -B 'Yes' 'swaymsg exit'
 	}
 
     floating_modifier $mod
@@ -170,11 +171,11 @@
 		--locked XF86AudioNext exec mpc next
 		--locked Shift+XF86AudioNext exec playerctl next
 		# F7
-		--locked XF86MonBrightnessDown exec xbacklight -dec 1
-		--locked Shift+XF86MonBrightnessDown exec xbacklight -dec 10
+		--locked XF86MonBrightnessDown exec brightnessctl set 1%-
+		--locked Shift+XF86MonBrightnessDown exec brightnessctl set 10%-
 		# F8
-		--locked XF86MonBrightnessUp exec xbacklight -inc 1
-		--locked Shift+XF86MonBrightnessUp exec xbacklight -inc 10
+		--locked XF86MonBrightnessUp exec brightnessctl set +1%
+		--locked Shift+XF86MonBrightnessUp exec brightnessctl set +10%
 		# F11
 		Print exec sway-screenshot -o /home/vale/Pictures/screenshots -m output 
 		Shift+Print exec sway-screenshot -o /home/vale/Pictures/screenshots -m region
@@ -187,11 +188,10 @@
 # Aesthetics
 	font pango:Lexend 9
 	title_align center
-	default_border normal 3
-	hide_edge_borders both
+	default_border normal 0
 
 	set {
-		$black #131111
+		$black #131111F2
 
 		$dark_gray #221E1E
 		$gray #3E3C3C
@@ -222,21 +222,21 @@
 		$bright_magenta #E6467B
 	}
 
-	output "*" bg /home/vale/.config/sway/wallpaper.png fill
+	output "*" bg /home/vale/.config/sway/saxon-white-qwQ5LGUzzeQ-unsplash.jpg fill
 
 ## Colors
 #							border      background text       indicator  child_border
-	client.focused          $black      $black     $yellow    $black     $black
-	client.focused_inactive $black      $black     $white     $black     $black
-	client.unfocused        $black      $black     $white     $black     $black
-	client.urgent           $black      $black     $red       $red       $black
+	client.focused          $black      $black     $yellow    $gray      $black
+	client.focused_inactive $black      $black     $white     $gray      $black
+	client.unfocused        $black      $black     $white     $gray      $black
+	client.urgent           $black      $black     $red       $gray      $black
 	client.background       $black
 
 ## Status bar
 #
 	bar {
 		status_command yambar
-  		mode invisible
+		mode invisible
 	}
 
 ## Configure power and locking
@@ -258,11 +258,13 @@
 
 	assign {
 		[app_id="firefox"] workspace number 1
-		[title="Steam"] workspace number 6
-		[title="Heroic Games Launcher"] workspace number 6
-		[app_id="org.prismlauncher.PrismLauncher"] workspace number 6
+		[title="Steam"] workspace number 5
+		[title="Heroic Games Launcher"] workspace number 5
+		[app_id="org.prismlauncher.PrismLauncher"] workspace number 5
 		[app_id="virt-manager"] workspace number 9
 	}
+
+	for_window [app_id="firefox"] border pixel 3
 
 ## Floating configs
 #
