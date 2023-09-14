@@ -51,4 +51,3 @@ search_engine_default_search_mode = 2
 
 external_editor = nvim
 use_console_editor = yes
-
