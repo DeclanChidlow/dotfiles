@@ -13,12 +13,8 @@ map('i', '""', '""<Left>')
 map('i', "''", "''<Left>")
 map('i', '``', '``<Left>')
 
--- Move keys
-map('', '<M-n>', 'h')
-map('', '<M-n>', 'h')
-map('', '<M-e>', 'j')
-map('', '<M-e>', 'j')
-map('', '<M-i>', 'k')
-map('', '<M-i>', 'k')
-map('', '<M-o>', 'l')
-map('', '<M-o>', 'l')
+-- Make move by screenline
+map({ 'n', 'v' }, '<Up>', 'gk')
+map('i', '<Up>', '<C-o>gk')
+map({ 'n', 'v' }, '<Down>', 'gj')
+map('i', '<Down>', '<C-o>gj')

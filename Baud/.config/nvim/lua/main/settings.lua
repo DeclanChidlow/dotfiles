@@ -15,16 +15,28 @@ o.cursorcolumn = true
 vim.cmd [[aunmenu PopUp.How-to\ disable\ mouse]]
 vim.cmd [[aunmenu PopUp.-1-]]
 
--- Show line number
+-- Show line number and dynamically activate relative line numbers
 o.number = true
+vim.cmd [[
+  augroup numbertoggle
+    autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+	autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+  augroup END
+]]
 
--- No line wrap
+-- No line wrap and better scrolling
 o.wrap = false
+o.scrolloff = 3
 
 -- Improve search
 o.ignorecase = true
 o.smartcase = true
 o.hlsearch = false
+
+-- Allow code folding
+o.foldmethod = "indent"
+o.foldlevel = 3
 
 -- Better tabs
 o.tabstop = 4
