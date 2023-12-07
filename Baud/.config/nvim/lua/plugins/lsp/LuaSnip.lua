@@ -1,7 +1,9 @@
 -- Snippet engine
-local Plugin = { "L3MON4D3/LuaSnip" }
+-- https://github.com/L3MON4D3/LuaSnip
 
-function Plugin.init()
-end
-
-return Plugin
+return {
+	"L3MON4D3/LuaSnip",
+	dependencies = {
+		"saadparwaiz1/cmp_luasnip",
+	}
+}

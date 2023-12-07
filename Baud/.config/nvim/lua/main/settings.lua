@@ -3,12 +3,11 @@ local wo = vim.wo
 local bo = vim.bo
 
 -- File type detection
-o.filetype = true
-o.filetypeplugin = true
-o.filetypeindent = true
+o.filetype = on
 
 -- Highlight current location
 o.cursorline = true
+o.cursorlineopt = "screenline"
 o.cursorcolumn = true
 
 -- Disable 'How to Disable Mouse'
@@ -29,6 +28,13 @@ vim.cmd [[
 o.wrap = false
 o.scrolloff = 3
 
+-- Persistent undo between sessions
+o.undofile = true
+
+-- Disable unneeded backup
+o.backup = false
+o.writebackup = false
+
 -- Improve search
 o.ignorecase = true
 o.smartcase = true
@@ -37,6 +43,11 @@ o.hlsearch = false
 -- Allow code folding
 o.foldmethod = "indent"
 o.foldlevel = 3
+
+-- Better indents
+o.autoindent = true
+o.breakindent = true
+o.copyindent = true
 
 -- Better tabs
 o.tabstop = 4
@@ -49,5 +60,16 @@ o.spell = true
 -- Use system clipboard
 o.clipboard = 'unnamedplus'
 
--- Format on save
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+-- Decrease update time
+o.updatetime = 250
+o.timeoutlen = 300
+
+-- Highlight on yank
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = '*',
+})

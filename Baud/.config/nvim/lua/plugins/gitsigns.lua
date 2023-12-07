@@ -1,8 +1,9 @@
 -- Git decorations
-local Plugin = { "lewis6991/gitsigns.nvim" }
+-- https://github.com/lewis6991/gitsigns.nvim
 
-function Plugin.init()
-	require("gitsigns").setup()
-end
-
-return Plugin
+return {
+	"lewis6991/gitsigns.nvim",
+	init = function()
+		require("gitsigns").setup()
+	end
+}

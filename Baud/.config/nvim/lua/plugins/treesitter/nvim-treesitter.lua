@@ -1,30 +1,37 @@
 -- Treesitter
-local Plugin = { "nvim-treesitter/nvim-treesitter" }
+-- https://github.com/nvim-treesitter/nvim-treesitter
 
-function Plugin.init()
-	require("nvim-treesitter.install").update({ with_sync = true })
+return {
+	"nvim-treesitter/nvim-treesitter",
 
-	require('nvim-treesitter.configs').setup({
-		highlight = {
-			enable = true,
-		},
-		ensure_installed = {
-			'javascript',
-			'python',
-			'rust',
-			'html',
-			'toml',
-			'css',
-			'json',
-			'lua',
-			'markdown',
-			'git_config',
-			'git_rebase',
-			'gitattributes',
-			'gitcommit',
-			'gitignore',
-		},
-	})
-end
+	init = function()
+		require("nvim-treesitter.install").update({
+			with_sync = true
+		})
 
-return Plugin
+		require('nvim-treesitter.configs').setup({
+			highlight = {
+				enable = true,
+			},
+			ensure_installed = {
+				'javascript',
+				'python',
+				'rust',
+				'html',
+				'toml',
+				'css',
+				'json',
+				'lua',
+				'markdown',
+				'git_config',
+				'git_rebase',
+				'gitattributes',
+				'gitcommit',
+				'gitignore',
+			},
+		})
+	end,
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter-context",
+	}
+}

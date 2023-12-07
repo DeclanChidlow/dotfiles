@@ -1,8 +1,6 @@
 -- Better comments
-local Plugin = { "numToStr/Comment.nvim" }
+-- https://github.com/numToStr/Comment.nvim
 
-function Plugin.init()
-	require('Comment').setup()
-end
-
-return Plugin
+return {
+	"numToStr/Comment.nvim",
+}

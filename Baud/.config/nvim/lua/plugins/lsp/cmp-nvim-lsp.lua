@@ -1,7 +1,6 @@
 -- Complete for snippet engine
-local Plugin = { "hrsh7th/cmp-nvim-lsp" }
+-- https://github.com/hrsh7th/cmp-nvim-lsp
 
-function Plugin.init()
-end
-
-return Plugin
+return {
+	"hrsh7th/cmp-nvim-lsp",
+}

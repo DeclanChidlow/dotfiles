@@ -1,21 +1,21 @@
 -- Notifications
-local Plugin = { "rcarriga/nvim-notify" }
+-- https://github.com/rcarriga/nvim-notify
 
-Plugin.lazy = true
-
-Plugin.opts = {
-	stages = "static",
-	level = "DEBUG",
-	background_colour = vim.g.terminal_color_background,
-	minimum_width = 15
+return {
+	"rcarriga/nvim-notify",
+	init = function()
+		vim.notify = require("notify")
+	end,
+	opts = {
+		stages = "static",
+		render = "wrapped-compact",
+		background_colour = vim.g.terminal_color_background,
+		minimum_width = 15,
+		max_height = function()
+			return math.floor(vim.o.lines * 0.75)
+		end,
+		max_width = function()
+			return math.floor(vim.o.columns * 0.75)
+		end,
+	}
 }
-
-function Plugin.init()
-	vim.notify = function(...)
-		local notify = require("notify")
-		vim.notify = notify
-		return notify(...)
-	end
-end
-
-return Plugin

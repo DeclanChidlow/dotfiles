@@ -1,8 +1,6 @@
 -- Configure language server protocol
-local Plugin = { "neovim/nvim-lspconfig" }
+-- https://github.com/neovim/nvim-lspconfig
 
-function Plugin.init()
-	lspconfig = require 'lspconfig'
-end
-
-return Plugin
+return {
+	"neovim/nvim-lspconfig",
+}

@@ -1,12 +1,6 @@
--- nvim-cmp source for nerdfont icons
-local Plugin = { "chrisgrieser/cmp-nerdfont" }
+-- nvim-cmp source for Nerdfont icons
+-- https://github.com/chrisgrieser/cmp-nerdfont
 
-function Plugin.init()
-	require 'cmp'.setup {
-		sources = {
-			{ name = 'nerdfont' }
-		}
-	}
-end
-
-return Plugin
+return {
+	"chrisgrieser/cmp-nerdfont",
+}

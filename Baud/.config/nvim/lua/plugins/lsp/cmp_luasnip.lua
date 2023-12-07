@@ -1,7 +1,6 @@
--- Complete for snippet engine
-local Plugin = { "saadparwaiz1/cmp_luasnip" }
+-- Integrates LuaSnip with Nvim-cmp
+-- https://github.com/saadparwaiz1/cmp_luasnip
 
-function Plugin.init()
-end
-
-return Plugin
+return {
+	"saadparwaiz1/cmp_luasnip",
+}
