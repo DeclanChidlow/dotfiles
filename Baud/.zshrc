@@ -2,35 +2,30 @@
 # https://github.com/DeclanChidlow/dotfiles
 # https://vale.rocks
 
-ZSH=/usr/share/oh-my-zsh/
-
 bindkey -v
 
-setopt HIST_IGNORE_ALL_DUPS
+setopt hist_ignore_all_dups
+setopt hist_reduce_blanks
+setopt inc_append_history
+setopt share_history
 
-macchina
+echo ""
+fastfetch -c ~/.config/fastfetch/info.jsonc
+echo ""
 
 # Alias
-alias ls="exa --classify --icons -a"
-alias tree="exa --tree --icons -a"
-alias vdir="exa --long --icons -a"
-alias grep="grep --color=auto"
+alias ls="eza --group-directories-first --icons -a"
+alias tree="eza --tree --level=2 --icons -a"
+alias vdir="eza --long --icons -a"
+alias grep="ugrep"
 alias ping="ping -c 5"
 alias cat="bat"
 alias :q="exit"
 alias .zshrc="nvim ~/.zshrc"
 alias matrix="neo-matrix -D"
-alias pipes="pipes.sh -p 3 -r 4500"
+alias pipes="pipes-rs -p 3 -r 0.5"
+alias fetch="fastfetch"
+alias kssh="kitty +kitten ssh"
+alias nixconf="nvim /etc/nixos/configuration.nix"
 
-# Eval
-eval "$(thefuck --alias)"
-
-ZSH_THEME="bira"
-plugins=(aliases colored-man-pages cp git systemd)
-
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
-fi
-
-source $ZSH/oh-my-zsh.sh
+# Oh My ZSH is configured in the Nix config
