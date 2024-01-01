@@ -16,9 +16,9 @@ return {
 					lualine_d = { "searchcount" },
 					lualine_x = { "encoding", "filesize", "filetype" },
 					lualine_y = { "progress" },
-					lualine_z = { "selectioncount", "location" }
-				}
-			}
+					lualine_z = { "selectioncount", "location" },
+				},
+			},
 		})
 	end,
 }

@@ -1,4 +1,3 @@
-local Plugins = {
-}
+local Plugins = {}
 
 return Plugins

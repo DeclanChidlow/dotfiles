@@ -51,3 +51,12 @@ search_engine_default_search_mode = 2
 
 external_editor = nvim
 use_console_editor = yes
+
+lines_scrolled = 1
+
+startup_screen = media_library
+
+## Media Library
+#
+#
+media_library_primary_tag = album_artist

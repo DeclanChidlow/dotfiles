@@ -1,7 +1,0 @@
-hide_ascii = true
-separator = "│"
-
-[box]
-title = "Framework─Laptop─13"
-border = "rounded"
-visible = true

@@ -15,5 +15,5 @@ return {
 				["<Esc>"] = mapping.quit,
 			},
 		})
-	end
+	end,
 }
