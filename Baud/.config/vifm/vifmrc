@@ -189,7 +189,7 @@ nnoremap yf :!echo -n %c:p | wl-clipboard %i &&
 command! fzf : set noquickview
                 \| let $FZF_PICK = term('find | fzf 2>/dev/tty')
                 \| if $FZF_PICK != ''
-                \|     execute 'goto' fnameescape($FZF_PICK)
+                \|     execute 'goto' fnameescap($FZF_PICK)
                 \| endif
 nnoremap ? :fzf<cr>
 
@@ -197,31 +197,27 @@ nnoremap ? :fzf<cr>
 ""
 
 " Filetypes
-set classify+='󰉋 :dir:/,󱆃 :exe:, :reg:,󰌹 :link:,󰡯 :?:,󱞽 ::../::'
+set classify+='󰉋 :dir:/,󱆃 :exe:,󰌹 :link:,󰡯 :?:,󱞽 ::../::'
 
 " Dirs
-set classify+='󰉌 ::home/::/,
-			 \  ::.git/::/,
-             \  ::.config/::/,
+set classify+='󱂵 ::home/::/,
+			 \ 󰊢 ::.git/::/,
+             \ 󱁿 ::.config/::/,
              \ 󱍙 ::Music/,,Audio/::/,
-             \  ::Books/::/,
              \ 󰲂 ::Documents/::/,
-             \  ::Development/::/,
+             \ 󱧼 ::Development/::/,
              \ 󰉍 ::Downloads/::/,
              \ 󰉏 ::Pictures/::/,
-             \ 󰑴 ::Education/::/,
-             \  ::VM/::/,
-             \  ::Videos/::/'
+             \ 󱧺 ::Videos/::/,'
 
 " Files
-set classify+=' ::.gitconfig,,.gitattributes,,.gitignore,,.zshenv,,.zprofile,,.zshrc,,.zlogin,,.zlogout::,
+set classify+='󰒓 ::.gitconfig,,.gitattributes,,.gitignore,,.zshenv,,.zprofile,,.zshrc,,.zlogin,,.zlogout::,
              \ 󰌆 ::known_hosts,,authorized_keys,,license,,LICENSE.md,,LICENSE,,LICENSE.txt::,'
 
 " Extentions
 set classify+='󰛫 ::*.7z,,*.gz,,*.rar,,*.zip::,
-             \  ::*.conf::,
+             \ 󰒓 ::*.conf::,
              \ 󰅪 ::*.json,,*.yaml,,*.yml,,*.toml::,
-             \  ::*.vim,,*.vimrc::,
              \ 󰆼 ::*.db,,*.dump,,*.img,,*.iso,,*.sql::,
              \ 󰌆 ::*.key,,*.pub::,
              \ 󰎕 ::*.log::,
@@ -250,5 +246,5 @@ set classify+='󰛫 ::*.7z,,*.gz,,*.rar,,*.zip::,
              \ 󰈰 ::*.avi,,*.flv,,*.m4v,,*.mkv,,*.mov,,*.mp4,,*.mpeg,,*.mpg,,*.webm,,*.mts,,*.3gp::,
              \ 󰋩 ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.png,,*.webp,,*.avif,,*.heic::,
              \ 󰜡 ::*.svg::,
-             \  ::*.ai,,*.eps,,*.ait::,
-             \  ::*.psb,,*.psd,,*.pdd,,*.psdt,,*.pdp::'
+             \  ::*.ai,,*.eps,,*.ait::,
+             \  ::*.psb,,*.psd,,*.pdd,,*.psdt,,*.pdp::'

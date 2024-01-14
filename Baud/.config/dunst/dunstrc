@@ -56,7 +56,6 @@
 #
     title = Dunst
     class = Dunst
-    corner_radius = 5
     ignore_dbusclose = false
 
 ## Wayland
@@ -66,18 +65,18 @@
 ## Colours
 #
 	[urgency_low]
-  	background = "#221E1EF2"
+	background = "#130F0FF2"
     foreground = "#FFEAD0"
     frame_color = "#3578C1"
     timeout = 10
 
 	[urgency_normal]
-    background = "#221E1EF2"
+	background = "#130F0FF2"
     foreground = "#FFEAD0"
     timeout = 10
 
 	[urgency_critical]
-    background = "#221E1EF2"
+    background = "#130F0FF2"
     foreground = "#FFEAD0"
     frame_color = "#F13731"
     timeout = 0

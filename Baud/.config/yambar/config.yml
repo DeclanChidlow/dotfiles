@@ -5,7 +5,7 @@
 bar:
   height: 40
   location: top
-  background: 131111F2
+  background: 130F0FE6
   foreground: FFEAD0ff
   font: Lexend:size=24
   spacing: 8
@@ -92,8 +92,8 @@ bar:
                 items:
                 - string: {text: " 󱃍  {capacity}% ", foreground: F13731ff, deco: {overline: {color: F13731ff, size: 3}}}
                 - string: {text: " 󰁻  {capacity}% ", foreground: F13731ff, deco: {overline: {color: F13731ff, size: 3}}}
-                - string: {text: " 󰁼  {capacity}% ", foreground: F56E00ff, deco: {overline: {color: F56E00ff, size: 3}}}
-                - string: {text: " 󰁽  {capacity}% ", foreground: F56E00ff, deco: {overline: {color: F56E00ff, size: 3}}}
+                - string: {text: " 󰁼  {capacity}% ", foreground: FF7B10ff, deco: {overline: {color: FF7B10ff, size: 3}}}
+                - string: {text: " 󰁽  {capacity}% ", foreground: FF7B10ff, deco: {overline: {color: FF7B10ff, size: 3}}}
                 - string: {text: " 󰁾  {capacity}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
                 - string: {text: " 󰁿  {capacity}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
                 - string: {text: " 󰂀  {capacity}% ", foreground: 3578C1ff, deco: {overline: {color: 3578C1ff, size: 3}}}
@@ -106,8 +106,8 @@ bar:
                 items:
                 - string: {text: " 󰢜  {capacity}% ", foreground: F13731ff, deco: {overline: {color: F13731ff, size: 3}}}
                 - string: {text: " 󰂆  {capacity}% ", foreground: F13731ff, deco: {overline: {color: F13731ff, size: 3}}}
-                - string: {text: " 󰂇  {capacity}% ", foreground: F56E00ff, deco: {overline: {color: F56E00ff, size: 3}}}
-                - string: {text: " 󰂈  {capacity}% ", foreground: F56E00ff, deco: {overline: {color: F56E00ff, size: 3}}}
+                - string: {text: " 󰂇  {capacity}% ", foreground: FF7B10ff, deco: {overline: {color: FF7B10ff, size: 3}}}
+                - string: {text: " 󰂈  {capacity}% ", foreground: FF7B10ff, deco: {overline: {color: FF7B10ff, size: 3}}}
                 - string: {text: " 󰢝  {capacity}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
                 - string: {text: " 󰂉  {capacity}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
                 - string: {text: " 󰢞  {capacity}% ", foreground: 3578C1ff, deco: {overline: {color: 3578C1ff, size: 3}}}
@@ -123,4 +123,4 @@ bar:
   - clock:
       date-format: "%d/%m"
       content:
-      - string: {text: " 󰃭  {date} 󰅐  {time} ", foreground: E23672ff, deco: {overline: {color: E23672ff, size: 3}}}
+      - string: {text: " 󰃭  {date} 󰅐  {time} ", foreground: DE2062ff, deco: {overline: {color: DE2062ff, size: 3}}}
