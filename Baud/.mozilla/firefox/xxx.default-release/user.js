@@ -34,18 +34,15 @@ user_pref("browser.backspace_action", 1);
 user_pref("media.ffmpeg.vaapi.enabled", true);
 user_pref("media.rdd-ffmpeg.enabled", true);
 user_pref("media.navigator.mediadatadecoder_vpx_enabled", true);
+user_pref("gfx.webrender.all", true);
 
 // Improve Fonts and Emoji
 user_pref("gfx.font_rendering.fontconfig.max_generic_substitutions", 127);
-user_pref("font.name-list.emoji", emoji)
 user_pref("gfx.font_rendering.opentype_svg.enabled", false);
 
 // Improve Fullscreen
 user_pref("full-screen-api.ignore-widgets", true);
 user_pref("full-screen-api.warning.timeout", 0);
-
-// Set Autocorrect Language
-user_pref("spellchecker.dictionary", en_AU);
 
 // Load page as soon as possible
 user_pref("nglayout.initialpaint.delay", 0);

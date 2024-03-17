@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-  fonts.packages = with pkgs; [
-     lexend
-     (nerdfonts.override { fonts = ["FiraCode"]; })
-  ];
+fonts.packages = with pkgs; [
+	google-fonts
+	(nerdfonts.override { fonts = ["FiraCode"]; })
+];
 }

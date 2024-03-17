@@ -1,29 +1,43 @@
 { pkgs, ... }:
 
 {
-  programs.zsh = {
-    enable = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "bira";
-      plugins = [ "gh" ];
-    };
-  };
-  users.defaultUserShell = pkgs.zsh;
+security.sudo.enable = false;
+security.doas = {
+	enable = true;
+	extraRules = [{
+		users = ["vale"];
+		keepEnv = true;
+		persist = true;
+	}];
+};
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
+programs.zsh = {
+	enable = true;
+	shellAliases = {
+		nixrebuild = "nixos-rebuild switch --upgrade";
+	};
+};
+users.defaultUserShell = pkgs.zsh;
 
-  programs.sway = {
-    enable = true;
-  };
-  hardware.opengl.enable = true;
+programs.neovim = {
+	enable = true;
+	defaultEditor = true;
+	viAlias = true;
+	vimAlias = true;
+};
 
-  programs.steam = {
-    enable = true;
-  };
+programs.sway = {
+	enable = true;
+	wrapperFeatures.gtk = true;
+	extraSessionCommands = ''
+      export SDL_VIDEODRIVER=wayland
+      export QT_QPA_PLATFORM=wayland
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+    '';
+};
+hardware.opengl.enable = true;
+
+programs.steam = {
+	enable = true;
+};
 }

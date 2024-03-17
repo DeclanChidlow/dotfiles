@@ -1,36 +1,3 @@
-/* Colours */
-
-html {
-	--black: #131111;
-
-	--grey: #3E3C3C;
-	--bright_grey: #5E5A5A;
-
-	--white: #C1ADA0;
-	--bright_white: #FFEAD0;
-
-	--red: #F13731;
-	--bright_red: #F45F5A;
-	
-	--orange: #F56E00;
-	--bright_orange: #EC934E;
-
-	--yellow: #FFAD1F;
-	--bright_yellow: #FCC765;
-
-	--green: #58A551;
-	--bright_green: #74B270;
-
-	--blue: #3578C1;
-	--bright_blue: #6D9BCD;
-
-	--cyan: #2BB7BC;
-	--bright_cyan: #3FCFD4;
-
-	--magenta: #E23672;
-	--bright_magenta: #E6467B;
-}
-
 /* TABBAR -------------------- */
 
 /* Tabbar height */
@@ -45,6 +12,11 @@ html {
 
 #tabs-newtab-button {
 	display: none;
+}
+
+/* Remove tab rounding */
+.tab-background {
+	border-radius: unset !important;
 }
 
 /* Make tabs take full width */
@@ -120,7 +92,6 @@ html {
 	font-size: 13px;
 }
 
-
 #TabsToolbar,
 .tabbrowser-tab {
 	max-height: var(--tab-min-height) !important;
@@ -130,4 +101,16 @@ html {
 
 #urlbar-input-container {
 	border-width: 0 !important;
+}
+
+/* Make transparent ------------------------- */
+
+window, #nav-bar, #main-window, #toolbar-menubar, #TabsToolbar, #PersonalToolbar, #navigator-toolbox, #sidebar-box{
+	background-color: rgba(19,15,15,0.425) !important;
+	-moz-appearance: none !important;
+}
+
+.tab-background:is([selected], [multiselected]) {
+	background-color: transparent !important;
+	-moz-appearance: none !important;
 }

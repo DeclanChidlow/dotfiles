@@ -21,6 +21,7 @@ return {
 				"jsonls",
 				"lua_ls",
 				"marksman",
+				"phpactor",
 				"pylsp",
 				"rust_analyzer",
 				"taplo",
@@ -30,7 +31,7 @@ return {
 				"beautysh",
 				"prettier",
 				"prettierd",
-				"stylua",
+				"phpcbf",
 				"ruff",
 			},
 		})

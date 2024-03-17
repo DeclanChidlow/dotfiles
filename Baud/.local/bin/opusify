@@ -1,8 +1,0 @@
-#!/bin/bash
-for file in ./*.flac; do
-    opusenc --bitrate 320 "$file" "${file%.flac}.opus"
-done
-
-dir=$PWD-opus
-mkdir -p "$dir" || exit
-mv ./*.opus "$dir"

@@ -6,7 +6,6 @@
 #
 
 ncmpcpp_directory = ~/.config/ncmpcpp
-lyrics_directory = ~/.lyrics
 
 ## Connection settings
 #

@@ -1,22 +1,19 @@
 /* Better new tab screen */
 @-moz-document url("about:newtab"), url("about:home"){
-  body{
-    background-image: url("backgrounds/treeslake.jpg"); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-  }
 
-  .search-wrapper {
-    display: none;
-  }
+	body {
+		background: #130F0FE6 !important;
+	}
 
-  .icon {
-    opacity: 30%;
-  }
+	.search-wrapper {
+		display: none;
+	}
 
-  .customize-menu {
-    background-color: #1c1b19 !important;
-  }
+	.icon {
+		opacity: 30%;
+	}
+
+	.customize-menu {
+		background-color: #2C2727 !important;
+	}
 }

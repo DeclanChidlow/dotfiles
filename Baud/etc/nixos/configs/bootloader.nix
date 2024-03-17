@@ -1,19 +1,19 @@
 {
-  # Setup bootloader
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      editor = false;
-      memtest86 = {
-        enable = true;
-        entryFilename = "memtest86.conf";
-      };
-      netbootxyz = {
-        enable = true;
-        entryFilename = "netbootxyz.conf";
-	  };
-    };
-    timeout = 0;
-    efi.canTouchEfiVariables = true;
-  };
+# Setup bootloader
+boot.loader = {
+	systemd-boot = {
+    		enable = true;
+			editor = false;
+		memtest86 = {
+			enable = true;
+			sortKey = "o_memtest86";
+		};
+		netbootxyz = {
+			enable = true;
+			sortKey = "o_netbootxyz";
+		};
+	};
+	timeout = 0;
+	efi.canTouchEfiVariables = true;
+};
 }

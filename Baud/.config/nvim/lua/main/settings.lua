@@ -64,6 +64,13 @@ o.clipboard = "unnamedplus"
 o.updatetime = 250
 o.timeoutlen = 300
 
+-- Set max number of items in popup menus
+o.pumheight = 5
+
+-- Capabilities required for the Visual Studio LSPs
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- https://nathan-long.com/blog/modern-javascript-tooling-in-neovim/
+
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {

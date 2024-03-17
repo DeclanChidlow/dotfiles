@@ -1,0 +1,4 @@
+printWidth: 10000
+useTabs: true
+bracketSameLine: true
+proseWrap: "preserve"
