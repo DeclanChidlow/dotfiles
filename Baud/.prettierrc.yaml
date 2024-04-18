@@ -1,4 +1,17 @@
-printWidth: 10000
+# https://prettier.io/docs/en/options
+
 useTabs: true
+semi: true
+singleQuote: false
+quoteProps: consistent
+jsxSingleQuote: false
+trailingComma: all
+bracketSpacing: true
 bracketSameLine: true
-proseWrap: "preserve"
+arrowParens: always
+proseWrap: preserve
+htmlWhitespaceSensitivity: css
+vueIndentScriptAndStyle: true
+endOfLine: lf
+embeddedLanguageFormatting: auto
+singleAttributePerLine: false
