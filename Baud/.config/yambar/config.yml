@@ -11,116 +11,118 @@ bar:
   spacing: 8
 
   left:
-  - i3:
-      sort: ascending
-      content:
-        "":
-          map:
-            margin: 2
-            default:
-            - string: {text: " {name} ", foreground: 5E5A5Aff}
-            conditions:
-              state == focused:
-              - string: {text: " {name} ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
-              state == urgent:
-              - string: {text: " {name} ", foreground: F13731ff, deco: {overline: {color: F13731ff, size: 3}}}
+    - i3:
+        sort: ascending
+        content:
+          "":
+            map:
+              margin: 2
+              default:
+                - string: { text: " {name} ", foreground: 5E5A5Aff }
+              conditions:
+                state == focused:
+                  - string: { text: " {name} ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+                state == urgent:
+                  - string: { text: " {name} ", foreground: F13731ff, deco: { overline: { color: F13731ff, size: 3 } } }
 
   center:
-  - mpd:
-      host: /run/user/1000/mpd/socket
-      content:
-        map:
-          margin: 10
-          conditions:
-            state == playing:
-            - string: {text: " 󰝚  {title} - 󰀥  {album} - 󰠃  {artist} ", foreground: 3578C1ff, deco: {overline: {color: 3578C1ff, size: 3}}}
+    - mpd:
+        host: /run/user/1000/mpd/socket
+        content:
+          map:
+            margin: 10
+            conditions:
+              state == playing:
+                - string: { text: " 󰝚  {title} - 󰀥  {album} - 󰠃  {artist} ", foreground: 3578C1ff, deco: { overline: { color: 3578C1ff, size: 3 } } }
 
   right:
-  - alsa:
-      card: default
-      mixer: Master
-      content:
-        map:
-          conditions:
-            muted:
-            - string: {text: " 󰸈  {percent}% ", foreground: F13731ff, deco: {overline: {color: F13731ff, size: 3}}}
-            ~muted:
-              ramp:
-                tag: percent
-                items:
-                - string: {text: " 󰕿  {percent}% ", foreground: 2BB7BCff, deco: {overline: {color: 2BB7BCff, size: 3}}}
-                - string: {text: " 󰖀  {percent}% ", foreground: 2BB7BCff, deco: {overline: {color: 2BB7BCff, size: 3}}}
-                - string: {text: " 󰕾  {percent}% ", foreground: 2BB7BCff, deco: {overline: {color: 2BB7BCff, size: 3}}}
+    - alsa:
+        card: default
+        mixer: Master
+        content:
+          map:
+            conditions:
+              muted:
+                - string: { text: " 󰸈  {percent}% ", foreground: F13731ff, deco: { overline: { color: F13731ff, size: 3 } } }
+              ~muted:
+                ramp:
+                  tag: percent
+                  items:
+                    - string: { text: " 󰕿  {percent}% ", foreground: 2BB7BCff, deco: { overline: { color: 2BB7BCff, size: 3 } } }
+                    - string: { text: " 󰖀  {percent}% ", foreground: 2BB7BCff, deco: { overline: { color: 2BB7BCff, size: 3 } } }
+                    - string: { text: " 󰕾  {percent}% ", foreground: 2BB7BCff, deco: { overline: { color: 2BB7BCff, size: 3 } } }
 
-  - backlight:
-      name: intel_backlight
-      content:
-        ramp:
-          tag: percent
-          items:
-          - string: {text: " 󱩎  {percent}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
-          - string: {text: " 󱩏  {percent}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
-          - string: {text: " 󱩐  {percent}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
-          - string: {text: " 󱩑  {percent}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
-          - string: {text: " 󱩒  {percent}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
-          - string: {text: " 󱩓  {percent}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
-          - string: {text: " 󱩔  {percent}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
-          - string: {text: " 󱩕  {percent}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
-          - string: {text: " 󱩖  {percent}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
-          - string: {text: " 󰛨  {percent}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
+    - backlight:
+        name: intel_backlight
+        content:
+          ramp:
+            tag: percent
+            items:
+              - string: { text: " 󱩎  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+              - string: { text: " 󱩏  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+              - string: { text: " 󱩐  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+              - string: { text: " 󱩑  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+              - string: { text: " 󱩒  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+              - string: { text: " 󱩓  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+              - string: { text: " 󱩔  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+              - string: { text: " 󱩕  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+              - string: { text: " 󱩖  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+              - string: { text: " 󰛨  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
 
-  - network:
-      name: wlp166s0
-      content:
-        map:
-          conditions:
-              state == up:
-              - string: {text: " 󰖟  ", foreground: 58A551ff, deco: {overline: {color: 58A551ff, size: 3}}}
-              state == testing:
-              - string: {text: " 󱞑  ", foreground: 58A551ff, deco: {overline: {color: 58A551ff, size: 3}}}
-              state == down:
-              - string: {text: " 󰪎  ", foreground: F13731ff, deco: {overline: {color: F13731ff, size: 3}}}
+    - network:
+        content:
+          map:
+            conditions:
+              name == wlp166s0:
+                map:
+                  conditions:
+                    state == up:
+                      - string: { text: " 󰖟  ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
+                    state == testing:
+                      - string: { text: " 󱞑  ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
+                    state == down:
+                      - string: { text: " 󰪎  ", foreground: F13731ff, deco: { overline: { color: F13731ff, size: 3 } } }
 
-  - battery:
-      name: BAT1
-      content:
-        map:
-          conditions:
-            state == discharging:
-            - ramp:
-                tag: capacity
-                items:
-                - string: {text: " 󱃍  {capacity}% ", foreground: F13731ff, deco: {overline: {color: F13731ff, size: 3}}}
-                - string: {text: " 󰁻  {capacity}% ", foreground: F13731ff, deco: {overline: {color: F13731ff, size: 3}}}
-                - string: {text: " 󰁼  {capacity}% ", foreground: FF7B10ff, deco: {overline: {color: FF7B10ff, size: 3}}}
-                - string: {text: " 󰁽  {capacity}% ", foreground: FF7B10ff, deco: {overline: {color: FF7B10ff, size: 3}}}
-                - string: {text: " 󰁾  {capacity}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
-                - string: {text: " 󰁿  {capacity}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
-                - string: {text: " 󰂀  {capacity}% ", foreground: 3578C1ff, deco: {overline: {color: 3578C1ff, size: 3}}}
-                - string: {text: " 󰂁  {capacity}% ", foreground: 3578C1ff, deco: {overline: {color: 3578C1ff, size: 3}}}
-                - string: {text: " 󰂂  {capacity}% ", foreground: 58A551ff, deco: {overline: {color: 58A551ff, size: 3}}}
-                - string: {text: " 󰁹  {capacity}% ", foreground: 58A551ff, deco: {overline: {color: 58A551ff, size: 3}}}
-            state == charging:
-            - ramp:
-                tag: capacity
-                items:
-                - string: {text: " 󰢜  {capacity}% ", foreground: F13731ff, deco: {overline: {color: F13731ff, size: 3}}}
-                - string: {text: " 󰂆  {capacity}% ", foreground: F13731ff, deco: {overline: {color: F13731ff, size: 3}}}
-                - string: {text: " 󰂇  {capacity}% ", foreground: FF7B10ff, deco: {overline: {color: FF7B10ff, size: 3}}}
-                - string: {text: " 󰂈  {capacity}% ", foreground: FF7B10ff, deco: {overline: {color: FF7B10ff, size: 3}}}
-                - string: {text: " 󰢝  {capacity}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
-                - string: {text: " 󰂉  {capacity}% ", foreground: FFAD1Fff, deco: {overline: {color: FFAD1Fff, size: 3}}}
-                - string: {text: " 󰢞  {capacity}% ", foreground: 3578C1ff, deco: {overline: {color: 3578C1ff, size: 3}}}
-                - string: {text: " 󰂊  {capacity}% ", foreground: 3578C1ff, deco: {overline: {color: 3578C1ff, size: 3}}}
-                - string: {text: " 󰂋  {capacity}% ", foreground: 58A551ff, deco: {overline: {color: 58A551ff, size: 3}}}
-                - string: {text: " 󰂅  {capacity}% ", foreground: 58A551ff, deco: {overline: {color: 58A551ff, size: 3}}}
-            state == full:
-            - ramp:
-                tag: capacity
-                items:
-                - string: {text: " 󱈏  {capacity}% ", foreground: 58A551ff, deco: {overline: {color: 58A551ff, size: 3}}}
+    - battery:
+        name: BAT1
+        content:
+          map:
+            conditions:
+              state == discharging:
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: { text: " 󱃍  {capacity}% ", foreground: F13731ff, deco: { overline: { color: F13731ff, size: 3 } } }
+                      - string: { text: " 󰁻  {capacity}% ", foreground: F13731ff, deco: { overline: { color: F13731ff, size: 3 } } }
+                      - string: { text: " 󰁼  {capacity}% ", foreground: FF7B10ff, deco: { overline: { color: FF7B10ff, size: 3 } } }
+                      - string: { text: " 󰁽  {capacity}% ", foreground: FF7B10ff, deco: { overline: { color: FF7B10ff, size: 3 } } }
+                      - string: { text: " 󰁾  {capacity}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+                      - string: { text: " 󰁿  {capacity}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+                      - string: { text: " 󰂀  {capacity}% ", foreground: 3578C1ff, deco: { overline: { color: 3578C1ff, size: 3 } } }
+                      - string: { text: " 󰂁  {capacity}% ", foreground: 3578C1ff, deco: { overline: { color: 3578C1ff, size: 3 } } }
+                      - string: { text: " 󰂂  {capacity}% ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
+                      - string: { text: " 󰁹  {capacity}% ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
+              state == charging:
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: { text: " 󰢜  {capacity}% ", foreground: F13731ff, deco: { overline: { color: F13731ff, size: 3 } } }
+                      - string: { text: " 󰂆  {capacity}% ", foreground: F13731ff, deco: { overline: { color: F13731ff, size: 3 } } }
+                      - string: { text: " 󰂇  {capacity}% ", foreground: FF7B10ff, deco: { overline: { color: FF7B10ff, size: 3 } } }
+                      - string: { text: " 󰂈  {capacity}% ", foreground: FF7B10ff, deco: { overline: { color: FF7B10ff, size: 3 } } }
+                      - string: { text: " 󰢝  {capacity}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+                      - string: { text: " 󰂉  {capacity}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+                      - string: { text: " 󰢞  {capacity}% ", foreground: 3578C1ff, deco: { overline: { color: 3578C1ff, size: 3 } } }
+                      - string: { text: " 󰂊  {capacity}% ", foreground: 3578C1ff, deco: { overline: { color: 3578C1ff, size: 3 } } }
+                      - string: { text: " 󰂋  {capacity}% ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
+                      - string: { text: " 󰂅  {capacity}% ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
+              state == full:
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: { text: " 󱈏  {capacity}% ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
 
-  - clock:
-      date-format: "%d/%m"
-      content:
-      - string: {text: " 󰃭  {date} 󰅐  {time} ", foreground: DE2062ff, deco: {overline: {color: DE2062ff, size: 3}}}
+    - clock:
+        date-format: "%d/%m"
+        content:
+          - string: { text: " 󰃭  {date} 󰅐  {time} ", foreground: DE2062ff, deco: { overline: { color: DE2062ff, size: 3 } } }
