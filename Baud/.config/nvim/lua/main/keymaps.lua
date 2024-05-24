@@ -18,7 +18,7 @@ map({ "n", "v" }, "<Down>", "gj")
 map("i", "<Up>", "<C-o>gk")
 map("i", "<Down>", "<C-o>gj")
 
--- Move lines
+-- Move lines vertically
 map({ "i", "n" }, "<A-Up>", "<Esc>:m .-2<CR>==")
 map({ "i", "n" }, "<A-Down>", "<Esc>:m .+1<CR>==")
 

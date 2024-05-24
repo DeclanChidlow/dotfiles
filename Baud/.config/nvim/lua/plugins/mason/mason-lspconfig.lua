@@ -14,5 +14,4 @@ return {
 			end,
 		})
 	end,
-	-- Configured in main Mason config for proper loading order.
 }

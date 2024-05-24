@@ -40,6 +40,9 @@ o.ignorecase = true
 o.smartcase = true
 o.hlsearch = false
 
+-- Shows the effects of a substitution in another panel
+o.inccommand = "split"
+
 -- Allow code folding
 o.foldmethod = "indent"
 o.foldlevel = 3
@@ -66,10 +69,6 @@ o.timeoutlen = 300
 
 -- Set max number of items in popup menus
 o.pumheight = 5
-
--- Capabilities required for the Visual Studio LSPs
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
--- https://nathan-long.com/blog/modern-javascript-tooling-in-neovim/
 
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })

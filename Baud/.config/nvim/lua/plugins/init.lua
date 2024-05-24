@@ -1,3 +1,0 @@
-local Plugins = {}
-
-return Plugins

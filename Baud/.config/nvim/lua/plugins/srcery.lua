@@ -4,7 +4,6 @@
 return {
 	"srcery-colors/srcery-vim",
 	config = function()
-		vim.opt.termguicolors = true
 		vim.cmd([[colorscheme srcery]])
 		vim.cmd([[highlight Normal ctermbg=none guibg=none]])
 	end,

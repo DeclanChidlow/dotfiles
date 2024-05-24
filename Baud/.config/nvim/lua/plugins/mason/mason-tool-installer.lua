@@ -1,7 +1,30 @@
--- Install and upgrades third party tools automatically
+-- Install and upgrade third party tools automatically
 -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
 
 return {
-	"WhoIsSethDaniel/mason-tool-installer.nvim",
-	-- Configured in main Mason config for proper loading order.
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    init = function()
+        require("mason-tool-installer").setup({
+            ensure_installed = {
+                -- LSPs
+                "bashls",
+                "cssls",
+                "tailwindcss",
+                "emmet_language_server",
+                "html",
+                "jsonls",
+                "phpactor",
+                "pylsp",
+                "rust_analyzer",
+                "taplo",
+                "tsserver",
+                "yamlls",
+                -- Formatters
+                "beautysh",
+                "prettier",
+                "prettierd",
+                "ruff",
+            },
+        })
+    end,
 }
