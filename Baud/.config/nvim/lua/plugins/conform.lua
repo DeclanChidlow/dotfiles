@@ -3,26 +3,34 @@
 
 return {
 	"stevearc/conform.nvim",
-	init = function()
-		require("conform").setup({
-			lsp_fallback = true,
-			formatters_by_ft = {
-				json = { { "prettierd", "prettier" } },
-				bash = { "beautysh" },
-				css = { { "prettierd", "prettier" } },
-				scss = { { "prettierd", "prettier" } },
-				less = { { "prettierd", "prettier" } },
-				html = { { "prettierd", "prettier" } },
-				markdown = { { "prettierd", "prettier" } },
-				php = { { "prettierd", "prettier" } },
-				python = { "ruff" },
-				javascript = { { "prettierd", "prettier" } },
-				javascriptreact = { { "prettierd", "prettier" } },
-				typescript = { { "prettierd", "prettier" } },
-				typescriptreact = { { "prettierd", "prettier" } },
-				yaml = { { "prettierd", "prettier" } },
-				toml = { "taplo" },
-			},
-		})
-	end,
+	event = { "BufWritePre" },
+	cmd = { "ConformInfo" },
+	keys = {
+		{
+			"f",
+			function()
+				require("conform").format({ async = true, lsp_format = "fallback" })
+			end,
+			mode = "",
+			desc = "Format buffer",
+		},
+	},
+	opts = {
+		formatters_by_ft = {
+			json = { "prettierd" },
+			css = { "prettierd" },
+			scss = { "prettierd" },
+			less = { "prettierd" },
+			html = { "prettierd" },
+			markdown = { "prettierd" },
+			php = { "prettierd" },
+			python = { "ruff" },
+			javascript = { "prettierd" },
+			javascriptreact = { "prettierd" },
+			typescript = { "prettierd" },
+			typescriptreact = { "prettierd" },
+			yaml = { "prettierd" },
+			toml = { "taplo" },
+		},
+	},
 }

@@ -4,7 +4,6 @@
 return {
 	"folke/todo-comments.nvim",
 	config = function()
-		vim.opt.showmode = false
 		require("todo-comments").setup({
 			keywords = {
 				TODO = { icon = "󰄬 ", color = "info", alt = { "TO-DO", "TASK" } },
@@ -32,11 +31,11 @@ return {
 				IDEA = { icon = "󰌵 ", color = "info", alt = { "IDEA", "CONCEPT" } },
 			},
 			colors = {
-				error = { "DiagnosticError", "#DC2626" },
-				warning = { "DiagnosticWarn", "#FBBF24" },
-				info = { "DiagnosticInfo", "#2563EB" },
-				hint = { "DiagnosticHint", "#10B981" },
-				default = { "Identifier", "#7C3AED" },
+				error = { "DiagnosticError", "#F13731" },
+				warning = { "DiagnosticWarn", "#FFAD1F" },
+				info = { "DiagnosticInfo", "#3578C1" },
+				hint = { "DiagnosticHint", "#58A551" },
+				default = { "Identifier", "#532ca5" },
 			},
 		})
 	end,

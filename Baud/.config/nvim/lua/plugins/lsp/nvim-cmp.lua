@@ -18,7 +18,7 @@ return {
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<C-Space>"] = cmp.mapping.complete(),
-				["<C-e>"] = cmp.mapping.abort(),
+				["<Esc>"] = cmp.mapping.abort(),
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
 			}),
 			sources = cmp.config.sources({
@@ -26,12 +26,17 @@ return {
 				{ name = "luasnip" },
 			}, {
 				{ name = "nerdfont" },
-				{ name = "buffer" },
 				{ name = "path" },
 			}),
+			formatting = {
+				format = require("nvim-highlight-colors").format
+			}
 		})
 	end,
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
+		"saadparwaiz1/cmp_luasnip",
+		"chrisgrieser/cmp-nerdfont",
+		"hrsh7th/cmp-path",
 	},
 }

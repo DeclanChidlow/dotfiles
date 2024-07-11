@@ -3,16 +3,8 @@
 
 return {
 	"nvim-treesitter/nvim-treesitter",
-
-	init = function()
-		require("nvim-treesitter.install").update({
-			with_sync = true,
-		})
-
+	config = function()
 		require("nvim-treesitter.configs").setup({
-			highlight = {
-				enable = true,
-			},
 			ensure_installed = {
 				"bash",
 				"css",
@@ -35,9 +27,11 @@ return {
 				"gitcommit",
 				"gitignore",
 			},
+			auto_install = true,
+			highlight = { enable = true, },
+			indent = { enable = true },
 		})
+		vim.opt.foldmethod = "expr"
+		vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 	end,
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter-context",
-	},
 }
