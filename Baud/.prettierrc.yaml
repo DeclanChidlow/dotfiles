@@ -1,5 +1,6 @@
 # https://prettier.io/docs/en/options
 
+printWidth: 200
 useTabs: true
 semi: true
 singleQuote: false

@@ -1,35 +1,46 @@
-# Declan "Vale" Chidlow's personal configuration file for ZSH
+# Personal configuration for ZSH
 # https://github.com/DeclanChidlow/dotfiles
 # https://vale.rocks
 
 bindkey -v
+
+## History
+#
 
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
 setopt inc_append_history
 setopt share_history
 
-# Welcome
-echo ""
-fastfetch -c ~/.config/fastfetch/info.jsonc
-echo ""
+## Functions
+# 
 
-# Functions
+# Create a new directory and navigate into it
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
+# Touch a new file and edit it
+toed() {
+    touch "$1" && $EDITOR "$1"
+}
 
 ## Define a function to retrieve the current Git branch
 git_branch() {
-  branch=$(git symbolic-ref --short HEAD 2>/dev/null)
-  if [[ -n $branch ]]; then
-    echo "‹$branch›"
-  fi
+  local branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+  [[ -n $branch ]] && echo "‹$branch›"
 }
 
-# Prompt
+## Prompt
+#
+
 setopt PROMPT_SUBST
 PROMPT='%B%F{light_white}╭──╴%F{green}%n@%m%f %F{blue}%~%f %F{yellow}$(git_branch)%f
 ╰─%#%b '
 
-# Alias
+## Alias
+#
+
 alias ls="eza --group-directories-first --icons -a"
 alias tree="eza --tree --level=2 --icons -a"
 alias vdir="eza --long --icons -a"
@@ -43,9 +54,13 @@ alias pipes="pipes-rs -p 3 -r 0.5"
 alias fetch="fastfetch"
 alias kssh="kitty +kitten ssh"
 
-# Secrets
+alias dockerstopall="docker stop $(docker ps -a -q)"
+
+## Secrets
+#
+
 if [ -f ~/.secrets ]; then
     source ~/.secrets
 else
-    print "404: ~/.secrets not found."
+	echo "404: ~/.secrets not found."
 fi

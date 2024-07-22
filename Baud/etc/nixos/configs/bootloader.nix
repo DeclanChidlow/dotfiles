@@ -1,5 +1,4 @@
 {
-# Setup bootloader
 boot.loader = {
 	systemd-boot = {
     		enable = true;

@@ -3,17 +3,22 @@
 
 return {
 	"ibhagwan/fzf-lua",
+	config = function()
+		local map = vim.keymap.set
+		local fzf = require('fzf-lua')
 
-	init = function()
-		vim.keymap.set("n", "g", "<cmd>lua require('fzf-lua').grep()<CR>")
-		vim.keymap.set("n", "g/", "<cmd>lua require('fzf-lua').grep_cword()<CR>")
-		vim.keymap.set("n", "ss", "<cmd>lua require('fzf-lua').spell_suggest()<CR>")
-		vim.keymap.set("n", "ft", "<cmd>lua require('fzf-lua').filetypes()<CR>")
-		vim.keymap.set("n", "km", "<cmd>lua require('fzf-lua').keymaps()<CR>")
+		map("n", "ff", fzf.files, { desc = "Find files" })
+		map("n", "gr", fzf.grep, { desc = "Grep" })
+		map("n", "b", fzf.buffers, { desc = "Find buffers" })
 
-		-- LSP specific
-		vim.keymap.set("n", "lr", "<cmd>lua require('fzf-lua').lsp_references()<CR>")
-		vim.keymap.set("n", "li", "<cmd>lua require('fzf-lua').lsp_implementations()<CR>")
-		vim.keymap.set("n", "ld", "<cmd>lua require('fzf-lua').lsp_definitions()<CR>")
+		map("n", "ss", fzf.spell_suggest, { desc = "Spell suggest" })
+		map("n", "ft", fzf.filetypes, { desc = "Change filetypes" })
+		map("n", "km", fzf.keymaps, { desc = "View keymaps" })
+
+		map("n", "lr", fzf.lsp_references, { desc = "LSP references" })
+		map("n", "li", fzf.lsp_implementations, { desc = "LSP implementations" })
+		map("n", "ld", fzf.lsp_definitions, { desc = "LSP definitions" })
+		map("n", "ls", fzf.lsp_document_symbols, { desc = "LSP document symbols" })
+		map("n", "la", fzf.lsp_code_actions, { desc = "LSP code actions" })
 	end,
 }

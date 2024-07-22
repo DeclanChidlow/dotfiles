@@ -3,7 +3,13 @@
 
 return {
 	"echasnovski/mini.move",
-	init = function()
+	keys = {
+		'<M-Left>',
+		'<M-Right>',
+		'<M-Down>',
+		'<M-Up>',
+	},
+	config = function()
 		require('mini.move').setup({
 			mappings = {
 				-- Move visual selection

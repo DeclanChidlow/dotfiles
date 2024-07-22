@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+# Check if FFMPEG is installed
+if ! command -v ffmpeg &> /dev/null; then
+    echo "FFMPEG could not be found but is required to use this script."
+    exit 1
+fi
+
+echo "Select a resolution for conversion:"
+echo "1) Keep current resolution"
+echo "2) 480p"
+echo "3) 720p"
+echo "4) 1080p"
+echo "5) 4K"
+read -r -p "Enter the number corresponding to your choice: " resolution_choice
+
+case $resolution_choice in
+    1)
+        resolution="current"
+        ;;
+    2)
+        resolution="640x480"
+        ;;
+    3)
+        resolution="1280x720"
+        ;;
+    4)
+        resolution="1920x1080"
+        ;;
+    5)
+        resolution="3840x2160"
+        ;;
+    *)
+        echo "Invalid choice. Please run the script again and select a valid option."
+        exit 1
+        ;;
+esac
+
+output_dir="$PWD-converted"
+files_found=false
+mkdir -p "$output_dir" || { echo "Failed to create directory $output_dir"; exit 1; }
+
+# Iterate over all files with video extensions
+for input_file in *.mp4 *.avi *.mkv *.mov *.webm; do
+    if [ -e "$input_file" ]; then
+        files_found=true
+        output_file="$output_dir/${input_file%.*}.mp4"
+        
+        echo "Converting $input_file to $output_file..."
+
+        if [ "$resolution" = "current" ]; then
+            # Keep current resolution
+            if ffmpeg -i "$input_file" -c:v libx264 -preset slow -strict experimental "$output_file"; then
+                echo "Successfully converted $input_file to $output_file"
+            else
+                echo "Failed to convert $input_file"
+            fi
+        else
+            # Convert to specified resolution
+            if ffmpeg -i "$input_file" -vf "scale=$resolution" -c:v libx264 -preset slow -strict experimental "$output_file"; then
+                echo "Successfully converted $input_file to $output_file"
+            else
+                echo "Failed to convert $input_file"
+            fi
+        fi
+    fi
+done
+
+# Check if any files were found and processed
+if ! $files_found; then
+    echo "No video files found in the current directory."
+    exit 1
+fi

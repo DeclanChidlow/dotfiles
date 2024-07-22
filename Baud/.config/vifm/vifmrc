@@ -62,6 +62,13 @@ set incsearch
 " Try to leave some space from cursor to upper/lower border in lists
 set scrolloff=3
 
+" Show line numbers
+set number
+set numberwidth=1
+
+" Make line number relative
+set relativenumber
+
 " Don't do too many requests to slow file systems
 if !has('win')
     set slowfs=curlftpfs
@@ -74,11 +81,17 @@ set statusline="%t %= %A %s %d"
 " Bookmarks
 " ------------------------------------------------------------------------------
 
-mark h ~/
-mark c ~/.config
-mark g ~/gitrepos
-mark m /run/media
-mark r /
+mark /	/
+mark m	/run/media
+mark h	~/
+mark c	~/.config
+mark a	~/Audio
+mark d	~/Documents
+mark e	~/Education
+mark g	~/Games
+mark p	~/Pictures
+mark v	~/Videos
+mark r	~/gitrepos/
 
 " ------------------------------------------------------------------------------
 " Commands
@@ -128,16 +141,16 @@ fileviewer {*.avi,*.flv,*.m4v,*.mkv,*.mov,*.mp4,*.mpeg,*.mpg,*.webm,*.mts,*.3gp}
 	\ ffprobe -hide_banner -pretty %c 2>&1
 
 " Images
-filextype {*.bmp,*.gif,*.jpeg,*.jpg,*.png,*.webp,*.avif,*.heic}
+filextype {*.bmp,*.gif,*.jpeg,*.jpg,*.jxl,*.png,*.webp,*.avif,*.heic}
 	\ imv-dir &
-fileviewer {*.bmp,*.gif,*.jpeg,*.jpg,*.png,*.webp,*.avif,*.heic}
+fileviewer {*.bmp,*.gif,*.jpeg,*.jpg,*.jxl,*.png,*.webp,*.avif,*.heic}
 	\ kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py %c >/dev/tty </dev/tty %N
     \ %pc
     \ kitten icat --clear --silent >/dev/tty </dev/tty %N
 
 " PDF
 filextype {*.pdf},
-	\ sioyek %c %i &
+	\ firefox %c
 fileviewer {*.pdf},
 	\ pdftotext -nopgbrk %c -
 
@@ -244,7 +257,7 @@ set classify+='󰛫 ::*.7z,,*.gz,,*.rar,,*.zip::,
              \ 󰝚 ::*.aup,,*.cue,,*.flac,,*.m4a,,*.mp3,,*.ogg,,*.opus,,*.wav::,
              \ 󰓎 ::*.ico::,
              \ 󰈰 ::*.avi,,*.flv,,*.m4v,,*.mkv,,*.mov,,*.mp4,,*.mpeg,,*.mpg,,*.webm,,*.mts,,*.3gp::,
-             \ 󰋩 ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.png,,*.webp,,*.avif,,*.heic::,
+             \ 󰋩 ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.jxl,,*.png,,*.webp,,*.avif,,*.heic::,
              \ 󰜡 ::*.svg::,
              \  ::*.ai,,*.eps,,*.ait::,
              \  ::*.psb,,*.psd,,*.pdd,,*.psdt,,*.pdp::'

@@ -1,23 +1,22 @@
-local function map(m, k, v)
-	vim.keymap.set(m, k, v, { silent = true })
-end
+local map = vim.keymap.set
 
--- Better brackets/quotes
-map("i", "<>", "<><Left>")
-map("i", "()", "()<Left>")
-map("i", "{}", "{}<Left>")
-map("i", "[]", "[]<Left>")
+-- Enter into brackets
+map("i", "<>", "<><Left>", { desc = "Enter into angled brackets" })
+map("i", "()", "()<Left>", { desc = "Enter into round brackets" })
+map("i", "{}", "{}<Left>", { desc = "Enter into curly brackets" })
+map("i", "[]", "[]<Left>", { desc = "Enter into square brackets" })
 
-map("i", '""', '""<Left>')
-map("i", "''", "''<Left>")
-map("i", "``", "``<Left>")
+-- Enter into quotes
+map("i", '""', '""<Left>', { desc = "Enter into double quotes" })
+map("i", "''", "''<Left>", { desc = "Enter into single quotes" })
+map("i", "``", "``<Left>", { desc = "Enter into backticks" })
 
--- Make move by screenline
-map({ "n", "v" }, "<Up>", "gk")
-map({ "n", "v" }, "<Down>", "gj")
-map("i", "<Up>", "<C-o>gk")
-map("i", "<Down>", "<C-o>gj")
+-- Move by screenline
+map({ "n", "v" }, "<Up>", "gk", { desc = "Move up a screenline" })
+map({ "n", "v" }, "<Down>", "gj", { desc = "Move down a screenline" })
+map("i", "<Up>", "<C-o>gk", { desc = "Move up a screenline" })
+map("i", "<Down>", "<C-o>gj", { desc = "Move down a screenline" })
 
 -- Add empty lines
-map('n', 'O', "O<Esc>")
-map('n', 'o', "o<Esc>")
+map('n', 'O', "O<Esc>", { desc = "Append a new line below the current line" })
+map('n', 'o', "o<Esc>", { desc = "Append a new line above the current line" })

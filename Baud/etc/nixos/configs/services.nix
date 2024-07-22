@@ -1,17 +1,16 @@
 { pkgs, ... }:
 
 {
+services.fwupd.enable = true;
+
 # Auto mount drives
 services.gvfs.enable = true;
 services.udisks2.enable = true;
-  
-# Enable CUPS for printing
-services.printing.enable = true;
+
+# Enable Fingerprint
+# services.fprintd.enable = true;
 
 services.mullvad-vpn.enable = true;
-
-# Android
-programs.adb.enable = true;
 
 services.mysql = {
   enable = true;

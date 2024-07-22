@@ -21,7 +21,7 @@ mpd_crossfade_time = 0
 #
 
 visualizer_data_source = "/tmp/mpd.fifo"
-visualizer_output_name = "Visualizer feed"
+visualizer_output_name = "vis_feed"
 visualizer_in_stereo = "yes"
 visualizer_type = "ellipse"
 visualizer_spectrum_smooth_look = yes
@@ -57,5 +57,5 @@ startup_screen = media_library
 
 ## Media Library
 #
-#
+
 media_library_primary_tag = album_artist

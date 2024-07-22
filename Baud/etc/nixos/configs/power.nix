@@ -6,7 +6,6 @@ services.logind.extraConfig = "
 	HandleLidSwitch=suspend-then-hibernate
 ";
  
-# Improved performance and power management
 powerManagement.enable = true;
 services.thermald.enable = true;
 services.tlp = {

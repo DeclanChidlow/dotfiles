@@ -61,8 +61,8 @@ o.breakindent = true
 o.copyindent = true
 
 -- Better tabs
-o.tabstop = 2
-o.shiftwidth = 2
+o.tabstop = 4
+o.shiftwidth = 4
 
 -- Spell check
 o.spelllang = "en_au"

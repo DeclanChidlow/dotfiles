@@ -39,8 +39,12 @@ users.users.vale = {
 		"networkmanager"
 		"libvirtd"
 		"adbusers"
+		"dialout"
+		"docker"
 	];
 };
+
+environment.localBinInPath = true;
 
 home-manager.users.vale = {
 	home.stateVersion = "23.11";

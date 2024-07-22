@@ -1,17 +1,18 @@
-# Declan "Vale" Chidlow's personal configuration file for SwayWM
+# Personal configuration for SwayWM
 # https://github.com/DeclanChidlow/dotfiles
 # https://vale.rocks
 
 ## Variables
 #
-	set {
-		$mod Mod4
-		$term kitty
-		$fileman $term -e vifm
-		$bemenu-conf -i -H 20 --fn "pango:Lexend Deca 9" --fb "$black" --ff "$blue" --nb "$black" --nf "$bright_white" --tb "$black" --hb "$black" --tf "$magenta" --hf "$magenta" --nf "$bright_white" --af "$bright_white" --ab "$black"
-		$menu bemenu-run $bemenu-conf -p 󰀻
-		$clipboard cliphist list | bemenu $bemenu-conf -l 30 -p 󰅍 | cliphist decode | wl-copy
-		$lock 'swaylock -F -f'
-	}
+
+set {
+	$mod Mod4
+	$term kitty
+	$fileman $term -e vifm
+	$bemenu-conf -i -H 20 --fn "pango:Lexend Deca 9" --fb "$black" --ff "$blue" --nb "$black" --nf "$bright_white" --tb "$black" --hb "$black" --tf "$magenta" --hf "$magenta" --nf "$bright_white" --af "$bright_white" --ab "$black"
+	$menu bemenu-run $bemenu-conf -p 󰀻
+	$clipboard cliphist list | bemenu $bemenu-conf -l 30 -p 󰅍 | cliphist decode | wl-copy
+	$lock 'swaylock -F -f'
+}
 
 include ~/.config/sway/config.d/*.conf

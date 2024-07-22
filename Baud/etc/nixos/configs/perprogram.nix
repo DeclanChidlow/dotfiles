@@ -14,7 +14,9 @@ security.doas = {
 programs.zsh = {
 	enable = true;
 	shellAliases = {
-		nixrebuild = "nixos-rebuild switch --upgrade";
+		nixrebuild = "doas nixos-rebuild switch";
+		nixrebuildup = "doas nixos-rebuild switch --upgrade";
+		nixgarbage = "doas nix-collect-garbage -d";
 	};
 };
 users.defaultUserShell = pkgs.zsh;
@@ -35,9 +37,14 @@ programs.sway = {
       export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
     '';
 };
-hardware.opengl.enable = true;
+hardware.graphics.enable = true;
 
 programs.steam = {
 	enable = true;
 };
+
+virtualisation.docker.enable = true;
+
+# Run Electron apps with Wayland
+environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }
