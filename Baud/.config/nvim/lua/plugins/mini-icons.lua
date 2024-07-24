@@ -1,9 +1,8 @@
 -- Add icons to many plugins
--- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-icons.md
+-- https://github.com/echasnovski/mini.icons
 
 return {
 	"echasnovski/mini.icons",
-	init = function()
-		require('mini.icons').setup()
-	end,
+	lazy = true,
+	opts = {}
 }

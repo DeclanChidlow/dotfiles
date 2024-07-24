@@ -20,3 +20,9 @@ map("i", "<Down>", "<C-o>gj", { desc = "Move down a screenline" })
 -- Add empty lines
 map('n', 'O', "O<Esc>", { desc = "Append a new line below the current line" })
 map('n', 'o', "o<Esc>", { desc = "Append a new line above the current line" })
+
+-- Language server protocol
+map("n", "cr", vim.lsp.buf.rename, { desc = "Rename" })
+map("n", "h", vim.lsp.buf.hover, { desc = "Hover" })
+map("n", "]]", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+map("n", "[[", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })

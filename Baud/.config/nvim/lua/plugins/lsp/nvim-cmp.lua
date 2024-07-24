@@ -3,7 +3,13 @@
 
 return {
 	"hrsh7th/nvim-cmp",
-	init = function()
+	dependencies = {
+		"hrsh7th/cmp-nvim-lsp",
+		"chrisgrieser/cmp-nerdfont",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+	},
+	opts = function()
 		local cmp = require("cmp")
 
 		cmp.setup({
@@ -16,19 +22,14 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				{ name = "nerdfont" },
 				{ name = "path" },
+				{ name = "nerdfont" },
+			}, {
 				{ name = "buffer" },
 			}),
 			formatting = {
 				format = require("nvim-highlight-colors").format
 			}
 		})
-	end,
-	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		"chrisgrieser/cmp-nerdfont",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-buffer",
-	},
+	end
 }

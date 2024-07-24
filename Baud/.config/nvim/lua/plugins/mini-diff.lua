@@ -1,13 +1,11 @@
 -- Git diff signs
--- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-diff.md
+-- https://github.com/echasnovski/mini.diff
 
 return {
 	"echasnovski/mini.diff",
-	init = function()
-		require("mini.diff").setup({
-			view = {
-				style = "sign",
-			},
-		})
-	end,
+	opts = {
+		view = {
+			style = "sign",
+		},
+	}
 }

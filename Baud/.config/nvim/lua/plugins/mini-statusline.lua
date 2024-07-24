@@ -1,9 +1,7 @@
 -- Statusline
--- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-statusline.md
+-- https://github.com/echasnovski/mini.statusline
 
 return {
 	"echasnovski/mini.statusline",
-	config = function()
-		require("mini.statusline").setup()
-	end,
+	opts = {}
 }
