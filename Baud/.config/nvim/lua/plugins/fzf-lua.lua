@@ -3,28 +3,31 @@
 
 return {
 	"ibhagwan/fzf-lua",
-	config = function()
-		local map = vim.keymap.set
-		local fzf = require('fzf-lua')
+	cmd = "FzfLua",
+	keys = {
+		{ "gr",  "<cmd>FzfLua live_grep_native<cr>",      desc = "Grep" },
+		{ "grc", "<cmd>FzfLua grep_cword<cr>",            desc = "Grep word under cursor" },
+		{ "grC", "<cmd>FzfLua grep_cword<cr>",            desc = "Grep WORD under cursor" },
+		{ "ff",  "<cmd>FzfLua files<cr>",                 desc = "Find files" },
+		{ "b",   "<cmd>FzfLua buffers<cr>",               desc = "Find buffers" },
 
-		map("n", "gr", fzf.grep, { desc = "Grep" })
-		map("n", "grc", fzf.grep_cword, { desc = "Grep word under cursor" })
-		map("n", "ff", fzf.files, { desc = "Find files" })
-		map("n", "b", fzf.buffers, { desc = "Find buffers" })
+		{ "ss",  "<cmd>FzfLua spell_suggest<cr>",         desc = "Spell suggest" },
+		{ "ft",  "<cmd>FzfLua filetypes<cr>",             desc = "Change filetypes" },
+		{ "km",  "<cmd>FzfLua keymaps<cr>",               desc = "View keymaps" },
 
-		map("n", "ss", fzf.spell_suggest, { desc = "Spell suggest" })
-		map("n", "ft", fzf.filetypes, { desc = "Change filetypes" })
-		map("n", "km", fzf.keymaps, { desc = "View keymaps" })
+		{ "ch",  "<cmd>FzfLua command_history<cr>",       desc = "Command history" },
+		{ "sh",  "<cmd>FzfLua search_history<cr>",        desc = "Search history" },
+		{ "ht",  "<cmd>FzfLua help_tags<cr>",             desc = "Help tags" },
+		{ "hg",  "<cmd>FzfLua highlights<cr>",            desc = "Highlights" },
 
-		map("n", "ch", fzf.command_history, { desc = "Command history" })
-		map("n", "sh", fzf.search_history, { desc = "Search history" })
+		{ "sc",  "<cmd>FzfLua git_bcommits<cr>",          desc = "Source control commits" },
 
-		map("n", "lr", fzf.lsp_references, { desc = "LSP references" })
-		map("n", "ld", fzf.lsp_definitions, { desc = "LSP definitions" })
-		map("n", "ltd", fzf.lsp_typedefs, { desc = "LSP type definitions" })
-		map("n", "li", fzf.lsp_implementations, { desc = "LSP implementations" })
-		map("n", "lds", fzf.lsp_document_symbols, { desc = "LSP document symbols" })
-		map("n", "lws", fzf.lsp_workspace_symbols, { desc = "LSP workspace symbols" })
-		map("n", "ca", fzf.lsp_code_actions, { desc = "LSP code actions" })
-	end,
+		{ "ld",  "<cmd>FzfLua lsp_definitions<cr>",       desc = "LSP definitions" },
+		{ "lr",  "<cmd>FzfLua lsp_references<cr>",        desc = "LSP references" },
+		{ "li",  "<cmd>FzfLua lsp_implementations<cr>",   desc = "LSP implementations" },
+		{ "ltd", "<cmd>FzfLua lsp_typedefs<cr>",          desc = "LSP type definitions" },
+		{ "lds", "<cmd>FzfLua lsp_document_symbols<cr>",  desc = "LSP document symbols" },
+		{ "lws", "<cmd>FzfLua lsp_workspace_symbols<cr>", desc = "LSP workspace symbols" },
+		{ "ca",  "<cmd>FzfLua lsp_code_actions<cr>",      desc = "LSP code actions" },
+	}
 }

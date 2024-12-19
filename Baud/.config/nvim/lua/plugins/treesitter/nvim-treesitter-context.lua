@@ -3,7 +3,6 @@
 
 return {
 	"nvim-treesitter/nvim-treesitter-context",
-	opts = {
-		enable = true,
-	},
+	event = "VeryLazy",
+	enabled = true,
 }

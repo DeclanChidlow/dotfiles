@@ -3,12 +3,7 @@
 
 return {
 	"echasnovski/mini.move",
-	keys = {
-		'<M-Left>',
-		'<M-Right>',
-		'<M-Down>',
-		'<M-Up>',
-	},
+	event = "VeryLazy",
 	opts = {
 		mappings = {
 			-- Move visual selection

@@ -1,0 +1,19 @@
+{
+  "blink.cmp": { "branch": "main", "commit": "ae5a4ce8f7e519e49de7ae6fcadd74547f820a52" },
+  "conform.nvim": { "branch": "master", "commit": "f4e8837878fc5712d053ba3091a73d27d96a09e2" },
+  "dropbar.nvim": { "branch": "master", "commit": "b63fe2ef7cc84a2193f867a0cfb6988a1233ab31" },
+  "fzf-lua": { "branch": "main", "commit": "cd9ab4ed3f44d062e511aa9de41ccf815f0ec962" },
+  "indent-blankline.nvim": { "branch": "master", "commit": "259357fa4097e232730341fa60988087d189193a" },
+  "lazy.nvim": { "branch": "main", "commit": "7e6c863bc7563efbdd757a310d17ebc95166cef3" },
+  "markdown.nvim": { "branch": "main", "commit": "0022a579ac7355966be5ade77699b88c76b6a549" },
+  "mini.diff": { "branch": "main", "commit": "5947342c95a9c2e24c659b54bb8ef083da4495ad" },
+  "mini.hipatterns": { "branch": "main", "commit": "f34975103a38b3f608219a1324cdfc58ea660b8b" },
+  "mini.icons": { "branch": "main", "commit": "44c0160526f7ae17ca8e8eab9ab235d047fcf7a6" },
+  "mini.move": { "branch": "main", "commit": "4caa1c212f5ca3d1633d21cfb184808090ed74b1" },
+  "mini.notify": { "branch": "main", "commit": "a933dc637b84314976d6482449f9f51ecd02d2b3" },
+  "mini.statusline": { "branch": "main", "commit": "813854243156472c9d0bc9c64ea0af159b9b37ca" },
+  "nvim-lspconfig": { "branch": "master", "commit": "9f2c279cf9abe584f03bfeb37c6658d68e3ff49d" },
+  "nvim-treesitter": { "branch": "master", "commit": "102bc74e093ef54aab57a368db15befeb9ba9d58" },
+  "nvim-treesitter-context": { "branch": "master", "commit": "8fd989b6b457a448606b4a2e51f9161700f609a7" },
+  "srcery-vim": { "branch": "master", "commit": "fa2242a3dd81804468241c0a8ebb32266c33fa60" }
+}

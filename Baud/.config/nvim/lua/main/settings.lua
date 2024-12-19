@@ -1,11 +1,5 @@
-local g = vim.g
 local o = vim.o
 local a = vim.api
-local wo = vim.wo
-local bo = vim.bo
-
--- File type detection
-o.filetype = on
 
 -- Highlight current location
 o.cursorline = true
@@ -20,17 +14,11 @@ a.nvim_command('aunmenu PopUp.-1-')
 o.number = true
 a.nvim_create_autocmd(
 	{ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" },
-	{
-		pattern = "*",
-		command = "if &nu && mode() != 'i' | set rnu | endif",
-	}
+	{ pattern = "*", command = "if &nu && mode() != 'i' | set rnu | endif", }
 )
 a.nvim_create_autocmd(
 	{ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" },
-	{
-		pattern = "*",
-		command = "if &nu | set nornu | endif",
-	}
+	{ pattern = "*", command = "if &nu | set nornu | endif", }
 )
 
 -- No line wrap and better scrolling
@@ -52,8 +40,9 @@ o.hlsearch = false
 -- Shows the effects of a substitution in another panel
 o.inccommand = "split"
 
--- Allow code folding (mostly configured with treesitter)
-o.foldlevel = 3
+-- Allow code folding
+o.foldmethod = "indent"
+o.foldlevel = 4
 
 -- Better indents
 o.autoindent = true
@@ -88,12 +77,8 @@ a.nvim_create_autocmd("TextYankPost", {
 	pattern = "*",
 })
 
--- Improve netrw
-g.netrw_liststyle = 3
-g.netrw_winsize = -30
-
 -- Disable unused features
-local disabled_built_ins = {
+for _, plugin in pairs({
 	"netrwFileHandlers",
 	"getscript",
 	"getscriptPlugin",
@@ -104,8 +89,6 @@ local disabled_built_ins = {
 	"rrhelper",
 	"spellfile_plugin",
 	"matchit"
-}
-
-for _, plugin in pairs(disabled_built_ins) do
+}) do
 	vim.g["loaded_" .. plugin] = 1
 end

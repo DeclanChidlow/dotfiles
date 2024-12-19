@@ -27,8 +27,17 @@ require("lazy").setup({
 	ui = {
 		border = "rounded",
 	},
-	change_detection = {
-		enabled = true,
-		notify = true,
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				"matchit",
+				"matchparen",
+				"netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+			},
+		},
 	},
 })

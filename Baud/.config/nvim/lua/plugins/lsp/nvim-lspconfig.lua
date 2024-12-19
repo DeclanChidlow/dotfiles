@@ -2,19 +2,16 @@
 -- https://github.com/neovim/nvim-lspconfig
 
 return {
-	"neovim/nvim-lspconfig",
-	init = function()
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-		local servers = {
+	'neovim/nvim-lspconfig',
+	opts = {
+		servers = {
 			bashls = {},
 			emmet_language_server = {},
 			cssls = { capabilities = capabilities },
 			html = { capabilities = capabilities },
+			lemminx = {},
 			yamlls = {},
-			tailwindcss = {},
-			tsserver = {},
+			ts_ls = {},
 			rust_analyzer = {
 				settings = {
 					['rust-analyzer'] = {
@@ -26,31 +23,25 @@ return {
 			},
 			lua_ls = {
 				on_init = function(client)
-					local path = client.workspace_folders[1].name
-					if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
-						return
-					end
-
 					client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-						workspace = {
-							checkThirdParty = false,
-							library = {
-								vim.env.VIMRUNTIME
-							}
-						}
+						workspace = { library = { vim.env.VIMRUNTIME } }
 					})
 				end,
-				settings = {
-					Lua = {}
-				}
+				settings = { Lua = {} }
 			},
 			phpactor = {},
 			ruff = {},
 			taplo = {},
 		}
-
-		for server, config in pairs(servers) do
-			require("lspconfig")[server].setup(config)
+	},
+	inlay_hints = {
+		enabled = true,
+	},
+	config = function(_, opts)
+		local lspconfig = require('lspconfig')
+		for server, config in pairs(opts.servers) do
+			config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+			lspconfig[server].setup(config)
 		end
-	end,
+	end
 }

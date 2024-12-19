@@ -3,8 +3,7 @@
 
 return {
 	"stevearc/conform.nvim",
-	event = { "BufWritePre" },
-	cmd = { "ConformInfo" },
+	cmd = "ConformInfo",
 	keys = {
 		{
 			"f",
@@ -21,6 +20,7 @@ return {
 			scss = { "prettierd" },
 			less = { "prettierd" },
 			html = { "prettierd" },
+			xhtml = { "prettierd" },
 			markdown = { "prettierd" },
 			php = { "prettierd" },
 			python = { "ruff" },

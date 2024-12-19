@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+vim.g.mapleader = " "
+
 -- Enter into brackets
 map("i", "<>", "<><Left>", { desc = "Enter into angled brackets" })
 map("i", "()", "()<Left>", { desc = "Enter into round brackets" })
@@ -18,11 +20,11 @@ map("i", "<Up>", "<C-o>gk", { desc = "Move up a screenline" })
 map("i", "<Down>", "<C-o>gj", { desc = "Move down a screenline" })
 
 -- Add empty lines
-map('n', 'O', "O<Esc>", { desc = "Append a new line below the current line" })
-map('n', 'o', "o<Esc>", { desc = "Append a new line above the current line" })
+map('n', 'O', "O<Esc>", { desc = "Append empty line below" })
+map('n', 'o', "o<Esc>", { desc = "Append empty line above" })
 
 -- Language server protocol
-map("n", "cr", vim.lsp.buf.rename, { desc = "Rename" })
-map("n", "h", vim.lsp.buf.hover, { desc = "Hover" })
-map("n", "]]", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
-map("n", "[[", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
+map("n", "rn", vim.lsp.buf.rename, { desc = "Rename" })
+map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+map("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })

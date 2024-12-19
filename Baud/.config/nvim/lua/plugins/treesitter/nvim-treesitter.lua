@@ -4,7 +4,8 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	cmd = { "TSUpdate", "TSUpdateSync", "TSInstall" },
+	event = "VeryLazy",
+	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 	lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
 	opts = {
 		highlight = { enable = true, },
@@ -16,15 +17,20 @@ return {
 			"html",
 			"javascript",
 			"json",
+			"jsonc",
 			"lua",
 			"markdown",
 			"php",
 			"python",
 			"rust",
+			"regex",
 			"toml",
+			"tsx",
+			"typescript",
 			"sql",
 			"toml",
 			"typescript",
+			"xml",
 			"yaml",
 			"git_config",
 			"git_rebase",
@@ -33,8 +39,4 @@ return {
 			"gitignore",
 		},
 	},
-	config = function()
-		vim.opt.foldmethod = "expr"
-		vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-	end,
 }
