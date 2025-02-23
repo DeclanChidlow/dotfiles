@@ -1,0 +1,11 @@
+nnoremap s :!kitty %d &<cr>
+nnoremap o :sort<cr>
+nnoremap w :view<cr>
+
+" Rename files
+nnoremap a cW
+nnoremap A cw
+
+" Create
+nnoremap m :touch<space>
+nnoremap M :mkdir<space>

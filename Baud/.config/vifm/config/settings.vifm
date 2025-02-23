@@ -1,0 +1,37 @@
+" General settings
+set vicmd=nvim
+set syscalls
+set trash
+set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,phistory,fhistory,dirstack,registers,bookmarks,bmarks
+set history=100
+set undolevels=100
+colorscheme Default
+set timefmt='%d/%m/%Y %H:%M'
+set wildmenu
+set wildstyle=popup
+set dotfiles
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+set ignorecase
+set smartcase
+set nohlsearch
+set incsearch
+set scrolloff=3
+set number
+set numberwidth=1
+set relativenumber
+if !has('win')
+    set slowfs=curlftpfs
+endif
+set statusline="%t %= %A %s %d"
+
+" Bookmarks
+mark m   /run/media
+mark h   ~/
+mark c   ~/.config
+mark a   ~/Audio
+mark d   ~/Documents
+mark e   ~/Education
+mark g   ~/Games
+mark p   ~/Pictures
+mark r   ~/Repositories
+mark v   ~/Videos

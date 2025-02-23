@@ -23,6 +23,10 @@ map("i", "<Down>", "<C-o>gj", { desc = "Move down a screenline" })
 map('n', 'O', "O<Esc>", { desc = "Append empty line below" })
 map('n', 'o', "o<Esc>", { desc = "Append empty line above" })
 
+-- Don't yank on delete char
+map({"n", "v"}, "x", '"_x')
+map({"n", "v"}, "X", '"_X')
+
 -- Language server protocol
 map("n", "rn", vim.lsp.buf.rename, { desc = "Rename" })
 map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })

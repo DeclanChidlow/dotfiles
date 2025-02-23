@@ -5,10 +5,10 @@
 bar:
   height: 40
   location: top
+  spacing: 8
+  font: Lexend:size=24
   background: 130F0FE6
   foreground: FFEAD0ff
-  font: Lexend:size=24
-  spacing: 8
 
   left:
     - i3:
@@ -75,20 +75,20 @@ bar:
             conditions:
               name == wlp166s0:
                 map:
+                  default:
+                    - string: { text: " 󱞒  ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
                   conditions:
-                    state == up:
-                      - string: { text: " 󰖟  ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
-                    state == testing:
-                      - string: { text: " 󱞑  ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
                     state == down:
                       - string: { text: " 󰪎  ", foreground: F13731ff, deco: { overline: { color: F13731ff, size: 3 } } }
+                    state == up:
+                      - string: { text: " 󰖟  ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
 
     - battery:
         name: BAT1
-        content:
-          map:
-            conditions:
-              state == discharging:
+        anchors:
+          discharging: &discharging
+            list:
+              items:
                 - ramp:
                     tag: capacity
                     items:
@@ -102,6 +102,13 @@ bar:
                       - string: { text: " 󰂁  {capacity}% ", foreground: 3578C1ff, deco: { overline: { color: 3578C1ff, size: 3 } } }
                       - string: { text: " 󰂂  {capacity}% ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
                       - string: { text: " 󰁹  {capacity}% ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
+        content:
+          map:
+            conditions:
+              state == unknown:
+                <<: *discharging
+              state == discharging:
+                <<: *discharging
               state == charging:
                 - ramp:
                     tag: capacity
@@ -117,10 +124,7 @@ bar:
                       - string: { text: " 󰂋  {capacity}% ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
                       - string: { text: " 󰂅  {capacity}% ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
               state == full:
-                - ramp:
-                    tag: capacity
-                    items:
-                      - string: { text: " 󱈏  {capacity}% ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
+                - string: { text: " 󱈏  {capacity}% ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
 
     - clock:
         date-format: "%d/%m"

@@ -1,0 +1,8 @@
+com! df df -h %m 2> /dev/null
+com! diff vim -d %f %F
+com! zip zip -r %c.zip %f
+com! run !! ./%f
+com! make !!make %a
+com! mkcd :mkdir %a | cd %a
+com! vgrep vim "+grep %a"
+com! reload :write | restart full

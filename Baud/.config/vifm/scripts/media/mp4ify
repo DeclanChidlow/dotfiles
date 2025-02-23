@@ -41,7 +41,7 @@ files_found=false
 mkdir -p "$output_dir" || { echo "Failed to create directory $output_dir"; exit 1; }
 
 # Iterate over all files with video extensions
-for input_file in *.mp4 *.avi *.mkv *.mov *.webm; do
+for input_file in *.mp4 *.avi *.mkv *.mov *.webm *.m4v; do
     if [ -e "$input_file" ]; then
         files_found=true
         output_file="$output_dir/${input_file%.*}.mp4"

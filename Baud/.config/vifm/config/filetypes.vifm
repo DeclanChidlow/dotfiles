@@ -1,0 +1,31 @@
+" Audio
+filetype {*.aup,*.cue,*.flac,*.m4a,*.mp3,*.ogg,*.opus,*.wav},<audio/*>
+    \ mpv --no-video %c %s,
+fileviewer {*.aup,*.cue,*.flac,*.m4a,*.mp3,*.ogg,*.opus,*.wav},<audio/*>
+    \ ffprobe -hide_banner -pretty %c 2>&1
+
+" Video
+filetype {*.avi,*.flv,*.m4v,*.mkv,*.mov,*.mp4,*.mpeg,*.mpg,*.webm,*.mts,*.3gp},<video/*>
+    \ mpv %c %s,
+fileviewer {*.avi,*.flv,*.m4v,*.mkv,*.mov,*.mp4,*.mpeg,*.mpg,*.webm,*.mts,*.3gp},<video/*>
+    \ ffprobe -hide_banner -pretty %c 2>&1
+
+" Images
+filextype {*.bmp,*.ico,*.cur,*.tif,*.tiff,*.gif,*.jpeg,*.jpg,*.jfif,*.jxl,*.pjpeg,*.pjp,*.svg,*.png,*.apng,*.webp,*.avif,*.heic}
+    \ imv-dir &
+fileviewer {*.bmp,*.ico,*.cur,*.tif,*.tiff,*.gif,*.jpeg,*.jpg,*.jfif,*.jxl,*.pjpeg,*.pjp,*.svg,*.png,*.apng,*.webp,*.avif,*.heic}
+    \ kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py %c >/dev/tty </dev/tty %N
+    \ %pc
+    \ kitten icat --clear --silent >/dev/tty </dev/tty %N
+
+" PDF
+filextype {*.pdf},
+    \ firefox %c
+fileviewer {*.pdf},
+    \ pdftotext -nopgbrk %c -
+
+" Office
+filextype {*.odt,*.ott,*.fodt,*.docx,*.dotx,*.doc,*.odp,*.odg,*.otp,*.fodp,*.ppt,*.pot,*.pptx,*.pptm,*.potx,*.potm,*.ods,*.ots,*.fods,*.xls,*.xlw,*.xlt,*.xlsx,*.xlsm,*.xltx,*.xltm},
+    \ libreoffice %f &
+fileviewer {*.odt,*.ott,*.fodt,*.docx,*.dotx,*.doc},
+    \ pandoc -s -t markdown -- %f

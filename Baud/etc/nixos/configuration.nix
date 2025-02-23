@@ -1,5 +1,5 @@
 # Move to unstable
-#	nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+#	nix-channel --add https://channels.nixos.org/nixos-unstable nixos
 
 # Add home-manager
 #	nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
@@ -15,7 +15,6 @@ imports =
 		./hardware-configuration.nix
 		./configs/bootloader.nix
 		./configs/connectivity.nix
-		./configs/fonts.nix
 		./configs/garbage.nix
 		./configs/locale.nix
 		./configs/packages.nix

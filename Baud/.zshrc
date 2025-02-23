@@ -51,10 +51,7 @@ alias :q="exit"
 alias .zshrc="$EDITOR ~/.zshrc"
 alias matrix="neo-matrix -D"
 alias pipes="pipes-rs -p 3 -r 0.5"
-alias fetch="fastfetch"
 alias kssh="kitty +kitten ssh"
-
-alias dockerstopall="docker stop $(docker ps -a -q)"
 
 ## Secrets
 #

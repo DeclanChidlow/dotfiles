@@ -11,13 +11,15 @@
 
 A collection of configuration files that I use for various programs, applications, and tools. These configs are created to fit my use case and are uploaded here for others to reference and use. Most of these configs are minimal and contain only features as I need them.
 
+Further usage details are available on [my uses page](https://vale.rocks/uses). 
+
 ## Devices
 
 Each one of my devices is named after an old computing or 'hacker' term. Usually from an old film.
 
 ### Baud
 
-Baud is the hostname of my laptop, which is currently a Framework Laptop 13. I'm a big fan of the device and [have written a review containing my opinions of it](https://vale.rocks/blog/A_Year_With_The_Framework_Laptop_13). Currently it runs NixOS.
+Baud is the hostname of my laptop, which is currently a Framework Laptop 13. I'm a big fan of the device and [have written a review containing my opinions of it](https://vale.rocks/posts/a-year-with-the-framework-laptop-13). Currently it runs NixOS.
 
 ### Mainframe
 

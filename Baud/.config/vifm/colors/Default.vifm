@@ -1,34 +1,10 @@
-" ------------------------------------------
-"             ncurses/            CIELAB
-" solarized   terminal       ##   lightness   
-" ------------------------------------------
-" NA          default/none   -1    NA
-
-" base03      lightblack     08    15     
-" base02      black          00    20     
-" base01      lightgreen     10    45     
-" base00      lightyellow    11    50     
-" base0       lightblue      12    60     
-" base1       lightcyan      14    65     
-" base2       white          07    92     
-" base3       lightwhite     15    97     
-
-" yellow      yellow         03    60     
-" orange      lightred       09    50     
-" red         red            01    50     
-" magenta     magenta        05    50     
-" violet      lightmagenta   13    50     
-" blue        blue           04    55     
-" cyan        cyan           06    60     
-" green       green          02    60
-
 highlight clear
 
 highlight Win			ctermfg=default		ctermbg=none		cterm=none
 
 highlight TopLine		ctermfg=white		ctermbg=none		cterm=none
 highlight TopLineSel	ctermfg=yellow		ctermbg=none		cterm=none
-highlight StatusLine	ctermfg=lightwhite	ctermbg=lightblack	cterm=none
+highlight StatusLine	ctermfg=lightwhite	ctermbg=black		cterm=none
 highlight Border		ctermfg=none		ctermbg=none		cterm=none
 
 highlight Selected		ctermfg=default		ctermbg=black		cterm=none

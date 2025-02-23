@@ -1,56 +1,61 @@
 #!/usr/bin/env bash
 
-# Check if OPUS encoder is installed
-if ! command -v opusenc &> /dev/null; then
-    echo "An OPUS encoder could not be found but is required to use this script."
+# Check if FFMPEG is installed
+if ! command -v ffmpeg &> /dev/null; then
+    echo "FFMPEG could not be found but is required to use this script."
     exit 1
 fi
 
-echo "Select an option for conversion:"
-echo "1) Use default bitrate"
-echo "2) Keep current bitrate"
+echo "Select an audio bitrate for conversion:"
+echo "1) Keep current bitrate"
+echo "2) 320k"
 read -r -p "Enter the number corresponding to your choice: " bitrate_choice
 
 case $bitrate_choice in
-    1)
-        keep_bitrate="false"
-		;;
-    2)
-        keep_bitrate="true"
-        ;;
-    *)
-        echo "Invalid choice. Please run the script again and select a valid option."
-        exit 1
-        ;;
+    1) bitrate="current" ;;
+    2) bitrate="320k" ;;
+    *) echo "Invalid choice. Please run the script again and select a valid option."
+       exit 1 ;;
 esac
 
-output_dir="$PWD-converted"
-mkdir -p "$output_dir" || { echo "Failed to create directory $output_dir"; exit 1; }
+output_dir="$PWD/converted"
+files_found=false
+mkdir -p "$output_dir" || {
+    echo "Failed to create directory $output_dir";
+    exit 1;
+}
 
-# Convert FLAC files to OPUS with the selected bitrate option
-for input_file in ./*.flac; do
+# Iterate over all .flac files in the current directory
+for input_file in *.flac; do
     if [ -e "$input_file" ]; then
+        files_found=true
         output_file="$output_dir/${input_file%.flac}.opus"
-        
+
         echo "Converting $input_file to $output_file..."
 
-        if [ "$keep_bitrate" = "true" ]; then
-        	if opusenc "$input_file" "$output_file"; then
-            	echo "Successfully converted $input_file to $output_file keeping current bitrate."
-			else
+        if [ "$bitrate" = "current" ]; then
+            # Keep current bitrate
+            if ffmpeg -i "$input_file" -c:a libopus "$output_file"; then
+                echo "Successfully converted $input_file to $output_file"
+            else
                 echo "Failed to convert $input_file"
-			fi
+            fi
         else
-			if opusenc --bitrate 320 "$input_file" "$output_file"; then
-            	echo "Converting $input_file to $output_file with default bitrate..."
-			else
+            # Convert to specified bitrate
+            if ffmpeg -i "$input_file" -c:a libopus -b:a "$bitrate" "$output_file"; then
+                echo "Successfully converted $input_file to $output_file"
+            else
                 echo "Failed to convert $input_file"
-			fi
+            fi
         fi
-    else
-        echo "No FLAC files found in the current directory."
-        exit 1
     fi
 done
 
-echo "All files have been processed."
+# Check if any files were found and processed
+if ! $files_found; then
+    echo "No .flac files found in the current directory."
+    exit 1
+fi
+
+echo "Conversion process completed."
+

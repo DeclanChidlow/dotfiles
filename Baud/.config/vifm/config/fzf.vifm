@@ -1,0 +1,6 @@
+command! fzf : set noquickview
+                \| let $FZF_PICK = term('find | fzf 2>/dev/tty')
+                \| if $FZF_PICK != ''
+                \|     execute 'goto' fnameescape($FZF_PICK)
+                \| endif
+nnoremap ? :fzf<cr>
