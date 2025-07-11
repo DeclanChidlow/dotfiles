@@ -6,24 +6,24 @@ line-uses-inside
 indicator-radius=65
 indicator-thickness=13
 
-text-color=#FFEAD0
-inside-color=#130F0F00
+text-color=#FFEAD1
+inside-color=#13111100
 
 key-hl-color=#58A551
-ring-color=#130F0F00
+ring-color=#13111100
 
 ring-wrong-color=#F13731
-inside-wrong-color=#130F0F00
-text-wrong-color=#FFEAD0
+inside-wrong-color=#13111100
+text-wrong-color=#FFEAD1
 
-ring-ver-color=#3578C1
-inside-ver-color=#130F0F00
-text-ver-color=#FFEAD0
+ring-ver-color=#3778C8
+inside-ver-color=#13111100
+text-ver-color=#FFEAD1
 
-ring-clear-color=#FF7B10
-inside-clear-color=#130F0F00
-text-clear-color=#FFEAD0
+ring-clear-color=#F56E00
+inside-clear-color=#13111100
+text-clear-color=#FFEAD1
 
-ring-caps-lock-color=#FFAD1F
-inside-caps-lock-color=#130F0F00
-text-caps-lock-color=#FFEAD0
+ring-caps-lock-color=#FFAD20
+inside-caps-lock-color=#13111100
+text-caps-lock-color=#FFEAD1

@@ -12,7 +12,7 @@ return {
 		{ "b",   "<cmd>FzfLua buffers<cr>",               desc = "Find buffers" },
 
 		{ "ss",  "<cmd>FzfLua spell_suggest<cr>",         desc = "Spell suggest" },
-		{ "ft",  "<cmd>FzfLua filetypes<cr>",             desc = "Change filetypes" },
+		{ "ft",  "<cmd>FzfLua filetypes<cr>",             desc = "Change file-types" },
 		{ "km",  "<cmd>FzfLua keymaps<cr>",               desc = "View keymaps" },
 
 		{ "ch",  "<cmd>FzfLua command_history<cr>",       desc = "Command history" },

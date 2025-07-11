@@ -1,5 +1,5 @@
 -- Move text or code
--- https://github.com/echasnovski/mini.move
+-- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-move.md
 
 return {
 	"echasnovski/mini.move",

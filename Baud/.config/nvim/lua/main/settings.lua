@@ -46,8 +46,8 @@ o.foldlevel = 4
 
 -- Better indents
 o.autoindent = true
-o.breakindent = true
 o.copyindent = true
+o.breakindent = true
 
 -- Better tabs
 o.tabstop = 4
@@ -61,7 +61,7 @@ o.spell = true
 o.clipboard = "unnamedplus"
 
 -- Decrease update time
-o.updatetime = 250
+o.updatetime = 500
 o.timeoutlen = 300
 
 -- Set max number of items in popup menus

@@ -1,6 +1,6 @@
-" Personal configuration for Vifm
+" Declan Chidlow's personal config for Vifm
 " https://github.com/DeclanChidlow/dotfiles
-" https://vale.rocks
+" https://vale.rocks/posts/uses
 
 source ~/.config/vifm/config/settings.vifm
 source ~/.config/vifm/config/commands.vifm

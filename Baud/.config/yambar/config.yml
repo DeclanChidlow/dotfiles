@@ -1,14 +1,14 @@
-# Personal configuration for Yambar
+# Declan Chidlow's personal config for Yambar
 # https://github.com/DeclanChidlow/dotfiles
-# https://vale.rocks
+# https://vale.rocks/posts/uses
 
 bar:
   height: 40
   location: top
   spacing: 8
   font: Lexend:size=24
-  background: 130F0FE6
-  foreground: FFEAD0ff
+  background: 131111ED
+  foreground: FFEAD1ff
 
   left:
     - i3:
@@ -21,7 +21,7 @@ bar:
                 - string: { text: " {name} ", foreground: 5E5A5Aff }
               conditions:
                 state == focused:
-                  - string: { text: " {name} ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+                  - string: { text: " {name} ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
                 state == urgent:
                   - string: { text: " {name} ", foreground: F13731ff, deco: { overline: { color: F13731ff, size: 3 } } }
 
@@ -33,7 +33,7 @@ bar:
             margin: 10
             conditions:
               state == playing:
-                - string: { text: " 󰝚  {title} - 󰀥  {album} - 󰠃  {artist} ", foreground: 3578C1ff, deco: { overline: { color: 3578C1ff, size: 3 } } }
+                - string: { text: " 󰝚  {title} - 󰀥  {album} - 󰠃  {artist} ", foreground: 3778C0ff, deco: { overline: { color: 3778C0ff, size: 3 } } }
 
   right:
     - alsa:
@@ -48,9 +48,9 @@ bar:
                 ramp:
                   tag: percent
                   items:
-                    - string: { text: " 󰕿  {percent}% ", foreground: 2BB7BCff, deco: { overline: { color: 2BB7BCff, size: 3 } } }
-                    - string: { text: " 󰖀  {percent}% ", foreground: 2BB7BCff, deco: { overline: { color: 2BB7BCff, size: 3 } } }
-                    - string: { text: " 󰕾  {percent}% ", foreground: 2BB7BCff, deco: { overline: { color: 2BB7BCff, size: 3 } } }
+                    - string: { text: " 󰕿  {percent}% ", foreground: 2CB7BCff, deco: { overline: { color: 2CB7BCff, size: 3 } } }
+                    - string: { text: " 󰖀  {percent}% ", foreground: 2CB7BCff, deco: { overline: { color: 2CB7BCff, size: 3 } } }
+                    - string: { text: " 󰕾  {percent}% ", foreground: 2CB7BCff, deco: { overline: { color: 2CB7BCff, size: 3 } } }
 
     - backlight:
         name: intel_backlight
@@ -58,16 +58,16 @@ bar:
           ramp:
             tag: percent
             items:
-              - string: { text: " 󱩎  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
-              - string: { text: " 󱩏  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
-              - string: { text: " 󱩐  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
-              - string: { text: " 󱩑  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
-              - string: { text: " 󱩒  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
-              - string: { text: " 󱩓  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
-              - string: { text: " 󱩔  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
-              - string: { text: " 󱩕  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
-              - string: { text: " 󱩖  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
-              - string: { text: " 󰛨  {percent}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+              - string: { text: " 󱩎  {percent}% ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
+              - string: { text: " 󱩏  {percent}% ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
+              - string: { text: " 󱩐  {percent}% ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
+              - string: { text: " 󱩑  {percent}% ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
+              - string: { text: " 󱩒  {percent}% ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
+              - string: { text: " 󱩓  {percent}% ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
+              - string: { text: " 󱩔  {percent}% ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
+              - string: { text: " 󱩕  {percent}% ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
+              - string: { text: " 󱩖  {percent}% ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
+              - string: { text: " 󰛨  {percent}% ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
 
     - network:
         content:
@@ -96,8 +96,8 @@ bar:
                       - string: { text: " 󰁻  {capacity}% ", foreground: F13731ff, deco: { overline: { color: F13731ff, size: 3 } } }
                       - string: { text: " 󰁼  {capacity}% ", foreground: FF7B10ff, deco: { overline: { color: FF7B10ff, size: 3 } } }
                       - string: { text: " 󰁽  {capacity}% ", foreground: FF7B10ff, deco: { overline: { color: FF7B10ff, size: 3 } } }
-                      - string: { text: " 󰁾  {capacity}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
-                      - string: { text: " 󰁿  {capacity}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+                      - string: { text: " 󰁾  {capacity}% ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
+                      - string: { text: " 󰁿  {capacity}% ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
                       - string: { text: " 󰂀  {capacity}% ", foreground: 3578C1ff, deco: { overline: { color: 3578C1ff, size: 3 } } }
                       - string: { text: " 󰂁  {capacity}% ", foreground: 3578C1ff, deco: { overline: { color: 3578C1ff, size: 3 } } }
                       - string: { text: " 󰂂  {capacity}% ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
@@ -117,8 +117,8 @@ bar:
                       - string: { text: " 󰂆  {capacity}% ", foreground: F13731ff, deco: { overline: { color: F13731ff, size: 3 } } }
                       - string: { text: " 󰂇  {capacity}% ", foreground: FF7B10ff, deco: { overline: { color: FF7B10ff, size: 3 } } }
                       - string: { text: " 󰂈  {capacity}% ", foreground: FF7B10ff, deco: { overline: { color: FF7B10ff, size: 3 } } }
-                      - string: { text: " 󰢝  {capacity}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
-                      - string: { text: " 󰂉  {capacity}% ", foreground: FFAD1Fff, deco: { overline: { color: FFAD1Fff, size: 3 } } }
+                      - string: { text: " 󰢝  {capacity}% ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
+                      - string: { text: " 󰂉  {capacity}% ", foreground: FFAD20ff, deco: { overline: { color: FFAD20ff, size: 3 } } }
                       - string: { text: " 󰢞  {capacity}% ", foreground: 3578C1ff, deco: { overline: { color: 3578C1ff, size: 3 } } }
                       - string: { text: " 󰂊  {capacity}% ", foreground: 3578C1ff, deco: { overline: { color: 3578C1ff, size: 3 } } }
                       - string: { text: " 󰂋  {capacity}% ", foreground: 58A551ff, deco: { overline: { color: 58A551ff, size: 3 } } }
@@ -129,4 +129,4 @@ bar:
     - clock:
         date-format: "%d/%m"
         content:
-          - string: { text: " 󰃭  {date} 󰅐  {time} ", foreground: DE2062ff, deco: { overline: { color: DE2062ff, size: 3 } } }
+          - string: { text: " 󰃭  {date} 󰅐  {time} ", foreground: E23572ff, deco: { overline: { color: E23572ff, size: 3 } } }

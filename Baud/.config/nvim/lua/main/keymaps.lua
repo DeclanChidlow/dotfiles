@@ -20,15 +20,13 @@ map("i", "<Up>", "<C-o>gk", { desc = "Move up a screenline" })
 map("i", "<Down>", "<C-o>gj", { desc = "Move down a screenline" })
 
 -- Add empty lines
-map('n', 'O', "O<Esc>", { desc = "Append empty line below" })
-map('n', 'o', "o<Esc>", { desc = "Append empty line above" })
+map('n', 'O', "O<Esc>", { desc = "Append empty line" })
+map('n', 'o', "o<Esc>", { desc = "Prepend empty line" })
 
--- Don't yank on delete char
+-- Don't yank when deleting 
 map({"n", "v"}, "x", '"_x')
 map({"n", "v"}, "X", '"_X')
 
 -- Language server protocol
 map("n", "rn", vim.lsp.buf.rename, { desc = "Rename" })
 map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
-map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
-map("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })

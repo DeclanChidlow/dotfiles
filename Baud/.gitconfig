@@ -17,3 +17,5 @@
 	conflictstyle = zdiff3
 [pull]
 	rebase = true
+[http]
+	postBuffer = 524288000

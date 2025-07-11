@@ -1,5 +1,5 @@
 -- Notifications
--- https://github.com/echasnovski/mini.notify
+-- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-notify.md
 
 return {
 	"echasnovski/mini.notify",

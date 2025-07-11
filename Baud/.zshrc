@@ -1,6 +1,6 @@
-# Personal configuration for ZSH
+# Declan Chidlow's personal config for ZSH
 # https://github.com/DeclanChidlow/dotfiles
-# https://vale.rocks
+# https://vale.rocks/posts/uses
 
 bindkey -v
 
@@ -44,7 +44,6 @@ PROMPT='%B%F{light_white}╭──╴%F{green}%n@%m%f %F{blue}%~%f %F{yellow}$(g
 alias ls="eza --group-directories-first --icons -a"
 alias tree="eza --tree --level=2 --icons -a"
 alias vdir="eza --long --icons -a"
-alias grep="ugrep"
 alias ping="ping -c 5"
 alias cat="bat"
 alias :q="exit"

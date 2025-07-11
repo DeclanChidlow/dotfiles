@@ -20,6 +20,7 @@ return {
 			scss = { "prettierd" },
 			less = { "prettierd" },
 			html = { "prettierd" },
+			hbs = { "prettierd" },
 			xhtml = { "prettierd" },
 			markdown = { "prettierd" },
 			php = { "prettierd" },
