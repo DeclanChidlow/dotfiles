@@ -15,7 +15,6 @@ imports =
 		./hardware-configuration.nix
 		./configs/bootloader.nix
 		./configs/connectivity.nix
-		./configs/garbage.nix
 		./configs/locale.nix
 		./configs/packages.nix
 		./configs/perprogram.nix
@@ -42,6 +41,9 @@ users.users.vale = {
 		"docker"
 	];
 };
+
+# Optimise Disk
+nix.settings.auto-optimise-store = true;
 
 environment.localBinInPath = true;
 

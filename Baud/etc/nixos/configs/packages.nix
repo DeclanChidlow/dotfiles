@@ -2,6 +2,7 @@
 
 {
 nixpkgs.config.allowUnfree = true;
+
 environment.systemPackages = with pkgs; [
 
 	xdg-desktop-portal
@@ -22,7 +23,6 @@ environment.systemPackages = with pkgs; [
 	sway
 	swaybg
 	swayidle
-	hyprlock
 	yambar 
 	bemenu
 	dunst
@@ -39,9 +39,9 @@ environment.systemPackages = with pkgs; [
 	# Utilities
 	pulseaudio # Provides pactl
 	brightnessctl
-	qalculate-gtk
 	bluetuith
 	nwg-displays
+	ollama
 
 	# Drive Management
 	usbutils
@@ -60,7 +60,7 @@ environment.systemPackages = with pkgs; [
 	
 	# Browsers
 	firefox-bin
-	firefox-devedition-bin # Gecko
+	firefox-devedition # Gecko
 	chromium # Blink
 	epiphany # WebKit
 	
@@ -85,7 +85,6 @@ environment.systemPackages = with pkgs; [
 		yarn
 		pnpm
 		bun
-		deno
 		php
 		rustup
 		mold
@@ -96,8 +95,6 @@ environment.systemPackages = with pkgs; [
 		docker
 		oxker
 		cmake
-		httplz
-		bruno
 
 		# Language Servers and Linters
 		tree-sitter
@@ -124,7 +121,7 @@ environment.systemPackages = with pkgs; [
 	playerctl
 	mpd
 	mpc-cli
-	ncmpcpp
+	inori
 	mpv
 	pavucontrol
 	imv
@@ -152,7 +149,6 @@ environment.systemPackages = with pkgs; [
 	grim
 	slurp
 	satty
-	kooha
 
 	# Archive Management
 	unar
@@ -203,6 +199,7 @@ environment.systemPackages = with pkgs; [
 
 fonts.packages = with pkgs; [
 	google-fonts
+	corefonts
 	nerd-fonts.fira-code
 ];
 }
