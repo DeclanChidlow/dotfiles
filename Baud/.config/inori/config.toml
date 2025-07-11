@@ -1,0 +1,7 @@
+# Declan Chidlow's personal config for inori
+# https://github.com/DeclanChidlow/dotfiles
+# https://vale.rocks/posts/uses
+
+[keybindings]
+clear_queue = "c"
+toggle_panel = "<tab>"
