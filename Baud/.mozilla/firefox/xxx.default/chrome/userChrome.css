@@ -1,0 +1,33 @@
+/* TOOLBAR ----------------------------------- */
+
+#back-button,
+#forward-button {
+	display: none;
+}
+
+/* Hide window controls */
+.titlebar-buttonbox-container {
+	display: none;
+}
+
+#navigator-toolbox,
+#nav-bar {
+	background-color: rgba(19, 15, 15, 0.425) !important;
+}
+
+/* SIDEBAR ----------------------------------- */
+
+.wrapper {
+	padding: 0 !important;
+}
+
+#tabs-newtab-button {
+	display: none !important;
+}
+
+/* URLBAR ----------------------------------- */
+
+.urlbar-input-container {
+	font-family: "Fira Code";
+	font-size: 0.9rem;
+}
