@@ -1,5 +1,5 @@
 <h1 align="center">
-  Dot Files
+  Dotfiles
   
   [![Stars](https://img.shields.io/github/stars/DeclanChidlow/dotfiles?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/dotfiles/stargazers)
   [![Forks](https://img.shields.io/github/forks/DeclanChidlow/dotfiles?style=flat-square&logoColor=white)](https://github.com/DeclanChidlow/dotfiles/network/members)
@@ -11,7 +11,7 @@
 
 A collection of configuration files that I use for various programs, applications, and tools. These configs are created to fit my use case and are uploaded here for others to reference and use. Most of these configs are minimal and contain only features as I need them.
 
-Further usage details are available on [my uses page](https://vale.rocks/uses). 
+Further usage details are available on [my uses page](https://vale.rocks/posts/uses). 
 
 ## Devices
 
