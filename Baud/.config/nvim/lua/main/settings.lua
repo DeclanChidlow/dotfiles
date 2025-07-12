@@ -80,13 +80,6 @@ a.nvim_create_autocmd("TextYankPost", {
 -- Disable unused features
 for _, plugin in pairs({
 	"netrwFileHandlers",
-	"getscript",
-	"getscriptPlugin",
-	"vimball",
-	"vimballPlugin",
-	"2html_plugin",
-	"logipat",
-	"rrhelper",
 	"spellfile_plugin",
 	"matchit"
 }) do
