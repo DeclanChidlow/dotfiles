@@ -12,6 +12,7 @@ map("i", "[]", "[]<Left>", { desc = "Enter into square brackets" })
 map("i", '""', '""<Left>', { desc = "Enter into double quotes" })
 map("i", "''", "''<Left>", { desc = "Enter into single quotes" })
 map("i", "``", "``<Left>", { desc = "Enter into backticks" })
+map("i", "```", "```", { desc = "Don't enter into codeblock backticks" })
 
 -- Move by screenline
 map({ "n", "v" }, "<Up>", "gk", { desc = "Move up a screenline" })
